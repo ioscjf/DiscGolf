@@ -1,0 +1,556 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A639C0041F22878700AC299F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A639C0031F22878700AC299F /* AppDelegate.swift */; };
+		A639C0061F22878700AC299F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A639C0051F22878700AC299F /* ViewController.swift */; };
+		A639C0091F22878700AC299F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A639C0071F22878700AC299F /* Main.storyboard */; };
+		A639C00C1F22878700AC299F /* DiscGolf.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A639C00A1F22878700AC299F /* DiscGolf.xcdatamodeld */; };
+		A639C00E1F22878700AC299F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A639C00D1F22878700AC299F /* Assets.xcassets */; };
+		A639C0111F22878700AC299F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A639C00F1F22878700AC299F /* LaunchScreen.storyboard */; };
+		A639C01C1F22878800AC299F /* DiscGolfTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A639C01B1F22878800AC299F /* DiscGolfTests.swift */; };
+		A639C0271F22878800AC299F /* DiscGolfUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A639C0261F22878800AC299F /* DiscGolfUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A639C0181F22878800AC299F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A639BFF81F22878700AC299F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A639BFFF1F22878700AC299F;
+			remoteInfo = DiscGolf;
+		};
+		A639C0231F22878800AC299F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A639BFF81F22878700AC299F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A639BFFF1F22878700AC299F;
+			remoteInfo = DiscGolf;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A639C0001F22878700AC299F /* DiscGolf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiscGolf.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A639C0031F22878700AC299F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A639C0051F22878700AC299F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A639C0081F22878700AC299F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A639C00B1F22878700AC299F /* DiscGolf.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DiscGolf.xcdatamodel; sourceTree = "<group>"; };
+		A639C00D1F22878700AC299F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A639C0101F22878700AC299F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A639C0121F22878700AC299F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A639C0171F22878800AC299F /* DiscGolfTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DiscGolfTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A639C01B1F22878800AC299F /* DiscGolfTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscGolfTests.swift; sourceTree = "<group>"; };
+		A639C01D1F22878800AC299F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A639C0221F22878800AC299F /* DiscGolfUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DiscGolfUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A639C0261F22878800AC299F /* DiscGolfUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscGolfUITests.swift; sourceTree = "<group>"; };
+		A639C0281F22878800AC299F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A639BFFD1F22878700AC299F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A639C0141F22878800AC299F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A639C01F1F22878800AC299F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A639BFF71F22878700AC299F = {
+			isa = PBXGroup;
+			children = (
+				A639C0021F22878700AC299F /* DiscGolf */,
+				A639C01A1F22878800AC299F /* DiscGolfTests */,
+				A639C0251F22878800AC299F /* DiscGolfUITests */,
+				A639C0011F22878700AC299F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A639C0011F22878700AC299F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A639C0001F22878700AC299F /* DiscGolf.app */,
+				A639C0171F22878800AC299F /* DiscGolfTests.xctest */,
+				A639C0221F22878800AC299F /* DiscGolfUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A639C0021F22878700AC299F /* DiscGolf */ = {
+			isa = PBXGroup;
+			children = (
+				A639C0031F22878700AC299F /* AppDelegate.swift */,
+				A639C0051F22878700AC299F /* ViewController.swift */,
+				A639C0071F22878700AC299F /* Main.storyboard */,
+				A639C00D1F22878700AC299F /* Assets.xcassets */,
+				A639C00F1F22878700AC299F /* LaunchScreen.storyboard */,
+				A639C0121F22878700AC299F /* Info.plist */,
+				A639C00A1F22878700AC299F /* DiscGolf.xcdatamodeld */,
+			);
+			path = DiscGolf;
+			sourceTree = "<group>";
+		};
+		A639C01A1F22878800AC299F /* DiscGolfTests */ = {
+			isa = PBXGroup;
+			children = (
+				A639C01B1F22878800AC299F /* DiscGolfTests.swift */,
+				A639C01D1F22878800AC299F /* Info.plist */,
+			);
+			path = DiscGolfTests;
+			sourceTree = "<group>";
+		};
+		A639C0251F22878800AC299F /* DiscGolfUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A639C0261F22878800AC299F /* DiscGolfUITests.swift */,
+				A639C0281F22878800AC299F /* Info.plist */,
+			);
+			path = DiscGolfUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A639BFFF1F22878700AC299F /* DiscGolf */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A639C02B1F22878800AC299F /* Build configuration list for PBXNativeTarget "DiscGolf" */;
+			buildPhases = (
+				A639BFFC1F22878700AC299F /* Sources */,
+				A639BFFD1F22878700AC299F /* Frameworks */,
+				A639BFFE1F22878700AC299F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DiscGolf;
+			productName = DiscGolf;
+			productReference = A639C0001F22878700AC299F /* DiscGolf.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A639C0161F22878800AC299F /* DiscGolfTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A639C02E1F22878800AC299F /* Build configuration list for PBXNativeTarget "DiscGolfTests" */;
+			buildPhases = (
+				A639C0131F22878800AC299F /* Sources */,
+				A639C0141F22878800AC299F /* Frameworks */,
+				A639C0151F22878800AC299F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A639C0191F22878800AC299F /* PBXTargetDependency */,
+			);
+			name = DiscGolfTests;
+			productName = DiscGolfTests;
+			productReference = A639C0171F22878800AC299F /* DiscGolfTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A639C0211F22878800AC299F /* DiscGolfUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A639C0311F22878800AC299F /* Build configuration list for PBXNativeTarget "DiscGolfUITests" */;
+			buildPhases = (
+				A639C01E1F22878800AC299F /* Sources */,
+				A639C01F1F22878800AC299F /* Frameworks */,
+				A639C0201F22878800AC299F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A639C0241F22878800AC299F /* PBXTargetDependency */,
+			);
+			name = DiscGolfUITests;
+			productName = DiscGolfUITests;
+			productReference = A639C0221F22878800AC299F /* DiscGolfUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A639BFF81F22878700AC299F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Connor Fitzpatrick";
+				TargetAttributes = {
+					A639BFFF1F22878700AC299F = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = FSLX2JP624;
+						ProvisioningStyle = Automatic;
+					};
+					A639C0161F22878800AC299F = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = FSLX2JP624;
+						ProvisioningStyle = Automatic;
+						TestTargetID = A639BFFF1F22878700AC299F;
+					};
+					A639C0211F22878800AC299F = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = FSLX2JP624;
+						ProvisioningStyle = Automatic;
+						TestTargetID = A639BFFF1F22878700AC299F;
+					};
+				};
+			};
+			buildConfigurationList = A639BFFB1F22878700AC299F /* Build configuration list for PBXProject "DiscGolf" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A639BFF71F22878700AC299F;
+			productRefGroup = A639C0011F22878700AC299F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A639BFFF1F22878700AC299F /* DiscGolf */,
+				A639C0161F22878800AC299F /* DiscGolfTests */,
+				A639C0211F22878800AC299F /* DiscGolfUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A639BFFE1F22878700AC299F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A639C0111F22878700AC299F /* LaunchScreen.storyboard in Resources */,
+				A639C00E1F22878700AC299F /* Assets.xcassets in Resources */,
+				A639C0091F22878700AC299F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A639C0151F22878800AC299F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A639C0201F22878800AC299F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A639BFFC1F22878700AC299F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A639C0061F22878700AC299F /* ViewController.swift in Sources */,
+				A639C0041F22878700AC299F /* AppDelegate.swift in Sources */,
+				A639C00C1F22878700AC299F /* DiscGolf.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A639C0131F22878800AC299F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A639C01C1F22878800AC299F /* DiscGolfTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A639C01E1F22878800AC299F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A639C0271F22878800AC299F /* DiscGolfUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A639C0191F22878800AC299F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A639BFFF1F22878700AC299F /* DiscGolf */;
+			targetProxy = A639C0181F22878800AC299F /* PBXContainerItemProxy */;
+		};
+		A639C0241F22878800AC299F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A639BFFF1F22878700AC299F /* DiscGolf */;
+			targetProxy = A639C0231F22878800AC299F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A639C0071F22878700AC299F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A639C0081F22878700AC299F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A639C00F1F22878700AC299F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A639C0101F22878700AC299F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A639C0291F22878800AC299F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A639C02A1F22878800AC299F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A639C02C1F22878800AC299F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = FSLX2JP624;
+				INFOPLIST_FILE = DiscGolf/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cjf.edu.luther.cs353.DiscGolf;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		A639C02D1F22878800AC299F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = FSLX2JP624;
+				INFOPLIST_FILE = DiscGolf/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cjf.edu.luther.cs353.DiscGolf;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		A639C02F1F22878800AC299F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = FSLX2JP624;
+				INFOPLIST_FILE = DiscGolfTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cjf.edu.luther.cs353.DiscGolfTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DiscGolf.app/DiscGolf";
+			};
+			name = Debug;
+		};
+		A639C0301F22878800AC299F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = FSLX2JP624;
+				INFOPLIST_FILE = DiscGolfTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cjf.edu.luther.cs353.DiscGolfTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DiscGolf.app/DiscGolf";
+			};
+			name = Release;
+		};
+		A639C0321F22878800AC299F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = FSLX2JP624;
+				INFOPLIST_FILE = DiscGolfUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cjf.edu.luther.cs353.DiscGolfUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = DiscGolf;
+			};
+			name = Debug;
+		};
+		A639C0331F22878800AC299F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = FSLX2JP624;
+				INFOPLIST_FILE = DiscGolfUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cjf.edu.luther.cs353.DiscGolfUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = DiscGolf;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A639BFFB1F22878700AC299F /* Build configuration list for PBXProject "DiscGolf" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A639C0291F22878800AC299F /* Debug */,
+				A639C02A1F22878800AC299F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A639C02B1F22878800AC299F /* Build configuration list for PBXNativeTarget "DiscGolf" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A639C02C1F22878800AC299F /* Debug */,
+				A639C02D1F22878800AC299F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A639C02E1F22878800AC299F /* Build configuration list for PBXNativeTarget "DiscGolfTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A639C02F1F22878800AC299F /* Debug */,
+				A639C0301F22878800AC299F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A639C0311F22878800AC299F /* Build configuration list for PBXNativeTarget "DiscGolfUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A639C0321F22878800AC299F /* Debug */,
+				A639C0331F22878800AC299F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A639C00A1F22878700AC299F /* DiscGolf.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A639C00B1F22878700AC299F /* DiscGolf.xcdatamodel */,
+			);
+			currentVersion = A639C00B1F22878700AC299F /* DiscGolf.xcdatamodel */;
+			path = DiscGolf.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = A639BFF81F22878700AC299F /* Project object */;
+}
