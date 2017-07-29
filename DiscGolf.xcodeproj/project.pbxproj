@@ -7,14 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		19E5CB9104813D718C1141F6 /* Pods_DiscGolfUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07838AC871FB8006A597534F /* Pods_DiscGolfUITests.framework */; };
+		69F475B556431E0E8C026E97 /* Pods_DiscGolfTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0EC9C2BE6A8DB9144C86974 /* Pods_DiscGolfTests.framework */; };
+		8A9FFEF159AE7698C435E04B /* Pods_DiscGolf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BF17EF701B0F241CED43EF4 /* Pods_DiscGolf.framework */; };
 		A639C0041F22878700AC299F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A639C0031F22878700AC299F /* AppDelegate.swift */; };
-		A639C0061F22878700AC299F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A639C0051F22878700AC299F /* ViewController.swift */; };
 		A639C0091F22878700AC299F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A639C0071F22878700AC299F /* Main.storyboard */; };
 		A639C00C1F22878700AC299F /* DiscGolf.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A639C00A1F22878700AC299F /* DiscGolf.xcdatamodeld */; };
 		A639C00E1F22878700AC299F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A639C00D1F22878700AC299F /* Assets.xcassets */; };
 		A639C0111F22878700AC299F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A639C00F1F22878700AC299F /* LaunchScreen.storyboard */; };
 		A639C01C1F22878800AC299F /* DiscGolfTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A639C01B1F22878800AC299F /* DiscGolfTests.swift */; };
 		A639C0271F22878800AC299F /* DiscGolfUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A639C0261F22878800AC299F /* DiscGolfUITests.swift */; };
+		A639C03B1F2C121800AC299F /* BlueCatsStuff.swift in Sources */ = {isa = PBXBuildFile; fileRef = A639C03A1F2C121800AC299F /* BlueCatsStuff.swift */; };
+		A639C03D1F2C1C6300AC299F /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A639C03C1F2C1C6300AC299F /* FeedViewController.swift */; };
+		A639C03F1F2C1C8300AC299F /* CoursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A639C03E1F2C1C8300AC299F /* CoursesViewController.swift */; };
+		A639C0411F2C1C9600AC299F /* DiscsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A639C0401F2C1C9600AC299F /* DiscsViewController.swift */; };
+		A639C0431F2C213800AC299F /* DiscFinderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A639C0421F2C213800AC299F /* DiscFinderViewController.swift */; };
+		A639C0451F2C21A700AC299F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A639C0441F2C21A700AC299F /* CoreLocation.framework */; };
+		A639C0471F2C3B8A00AC299F /* BeaconDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A639C0461F2C3B8A00AC299F /* BeaconDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,9 +44,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		07838AC871FB8006A597534F /* Pods_DiscGolfUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DiscGolfUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0EB7026CD96628DD6C7AF18C /* Pods-DiscGolf.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiscGolf.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DiscGolf/Pods-DiscGolf.debug.xcconfig"; sourceTree = "<group>"; };
+		1BF17EF701B0F241CED43EF4 /* Pods_DiscGolf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DiscGolf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F666627044ABE48021B9BB7 /* Pods-DiscGolfUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiscGolfUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DiscGolfUITests/Pods-DiscGolfUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		3EF7A5122FD1336F1EA6A46A /* Pods-DiscGolf.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiscGolf.release.xcconfig"; path = "Pods/Target Support Files/Pods-DiscGolf/Pods-DiscGolf.release.xcconfig"; sourceTree = "<group>"; };
+		69B29AED930D56655437A1AE /* Pods-DiscGolfTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiscGolfTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DiscGolfTests/Pods-DiscGolfTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A639C0001F22878700AC299F /* DiscGolf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiscGolf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A639C0031F22878700AC299F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A639C0051F22878700AC299F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A639C0081F22878700AC299F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A639C00B1F22878700AC299F /* DiscGolf.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DiscGolf.xcdatamodel; sourceTree = "<group>"; };
 		A639C00D1F22878700AC299F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +63,17 @@
 		A639C0221F22878800AC299F /* DiscGolfUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DiscGolfUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A639C0261F22878800AC299F /* DiscGolfUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscGolfUITests.swift; sourceTree = "<group>"; };
 		A639C0281F22878800AC299F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A639C0391F2C099500AC299F /* DiscGolf-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DiscGolf-Bridging-Header.h"; sourceTree = "<group>"; };
+		A639C03A1F2C121800AC299F /* BlueCatsStuff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlueCatsStuff.swift; sourceTree = "<group>"; };
+		A639C03C1F2C1C6300AC299F /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		A639C03E1F2C1C8300AC299F /* CoursesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoursesViewController.swift; sourceTree = "<group>"; };
+		A639C0401F2C1C9600AC299F /* DiscsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscsViewController.swift; sourceTree = "<group>"; };
+		A639C0421F2C213800AC299F /* DiscFinderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscFinderViewController.swift; sourceTree = "<group>"; };
+		A639C0441F2C21A700AC299F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		A639C0461F2C3B8A00AC299F /* BeaconDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconDelegate.swift; sourceTree = "<group>"; };
+		B9280D49E10D194CBB21F6EB /* Pods-DiscGolfTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiscGolfTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DiscGolfTests/Pods-DiscGolfTests.release.xcconfig"; sourceTree = "<group>"; };
+		D0EC9C2BE6A8DB9144C86974 /* Pods_DiscGolfTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DiscGolfTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FECE3623CCEA6C6C667DF049 /* Pods-DiscGolfUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiscGolfUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DiscGolfUITests/Pods-DiscGolfUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +81,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A639C0451F2C21A700AC299F /* CoreLocation.framework in Frameworks */,
+				8A9FFEF159AE7698C435E04B /* Pods_DiscGolf.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69F475B556431E0E8C026E97 /* Pods_DiscGolfTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +98,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19E5CB9104813D718C1141F6 /* Pods_DiscGolfUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		442DDFC40BCE3316E8AABEC3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0EB7026CD96628DD6C7AF18C /* Pods-DiscGolf.debug.xcconfig */,
+				3EF7A5122FD1336F1EA6A46A /* Pods-DiscGolf.release.xcconfig */,
+				69B29AED930D56655437A1AE /* Pods-DiscGolfTests.debug.xcconfig */,
+				B9280D49E10D194CBB21F6EB /* Pods-DiscGolfTests.release.xcconfig */,
+				1F666627044ABE48021B9BB7 /* Pods-DiscGolfUITests.debug.xcconfig */,
+				FECE3623CCEA6C6C667DF049 /* Pods-DiscGolfUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A4C35AA04CCFBB557A2565F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A639C0441F2C21A700AC299F /* CoreLocation.framework */,
+				1BF17EF701B0F241CED43EF4 /* Pods_DiscGolf.framework */,
+				D0EC9C2BE6A8DB9144C86974 /* Pods_DiscGolfTests.framework */,
+				07838AC871FB8006A597534F /* Pods_DiscGolfUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A639BFF71F22878700AC299F = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +136,8 @@
 				A639C01A1F22878800AC299F /* DiscGolfTests */,
 				A639C0251F22878800AC299F /* DiscGolfUITests */,
 				A639C0011F22878700AC299F /* Products */,
+				442DDFC40BCE3316E8AABEC3 /* Pods */,
+				A4C35AA04CCFBB557A2565F5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,9 +154,15 @@
 		A639C0021F22878700AC299F /* DiscGolf */ = {
 			isa = PBXGroup;
 			children = (
+				A639C0461F2C3B8A00AC299F /* BeaconDelegate.swift */,
+				A639C0421F2C213800AC299F /* DiscFinderViewController.swift */,
 				A639C0031F22878700AC299F /* AppDelegate.swift */,
-				A639C0051F22878700AC299F /* ViewController.swift */,
+				A639C03A1F2C121800AC299F /* BlueCatsStuff.swift */,
+				A639C0391F2C099500AC299F /* DiscGolf-Bridging-Header.h */,
 				A639C0071F22878700AC299F /* Main.storyboard */,
+				A639C03C1F2C1C6300AC299F /* FeedViewController.swift */,
+				A639C03E1F2C1C8300AC299F /* CoursesViewController.swift */,
+				A639C0401F2C1C9600AC299F /* DiscsViewController.swift */,
 				A639C00D1F22878700AC299F /* Assets.xcassets */,
 				A639C00F1F22878700AC299F /* LaunchScreen.storyboard */,
 				A639C0121F22878700AC299F /* Info.plist */,
@@ -135,9 +196,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A639C02B1F22878800AC299F /* Build configuration list for PBXNativeTarget "DiscGolf" */;
 			buildPhases = (
+				77BDD2914D8A9E53A6E096F5 /* [CP] Check Pods Manifest.lock */,
 				A639BFFC1F22878700AC299F /* Sources */,
 				A639BFFD1F22878700AC299F /* Frameworks */,
 				A639BFFE1F22878700AC299F /* Resources */,
+				D2B7C2D0B171B38B7C84A695 /* [CP] Embed Pods Frameworks */,
+				D21330EF5438E2EFE173FD96 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -152,9 +216,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A639C02E1F22878800AC299F /* Build configuration list for PBXNativeTarget "DiscGolfTests" */;
 			buildPhases = (
+				DF1B742DC18308C2AD70220E /* [CP] Check Pods Manifest.lock */,
 				A639C0131F22878800AC299F /* Sources */,
 				A639C0141F22878800AC299F /* Frameworks */,
 				A639C0151F22878800AC299F /* Resources */,
+				E855F7FD0FEAB178FCEBE80D /* [CP] Embed Pods Frameworks */,
+				F4EFED49E6A9D9CDEDBF6E83 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -170,9 +237,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A639C0311F22878800AC299F /* Build configuration list for PBXNativeTarget "DiscGolfUITests" */;
 			buildPhases = (
+				C084046245BE211405A7C9C8 /* [CP] Check Pods Manifest.lock */,
 				A639C01E1F22878800AC299F /* Sources */,
 				A639C01F1F22878800AC299F /* Frameworks */,
 				A639C0201F22878800AC299F /* Resources */,
+				8DC608DB3CEAF542A16D9494 /* [CP] Embed Pods Frameworks */,
+				FA12080808671994C9566B8A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -198,6 +268,11 @@
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = FSLX2JP624;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					A639C0161F22878800AC299F = {
 						CreatedOnToolsVersion = 8.3.3;
@@ -260,14 +335,157 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		77BDD2914D8A9E53A6E096F5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8DC608DB3CEAF542A16D9494 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DiscGolfUITests/Pods-DiscGolfUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C084046245BE211405A7C9C8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D21330EF5438E2EFE173FD96 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DiscGolf/Pods-DiscGolf-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D2B7C2D0B171B38B7C84A695 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DiscGolf/Pods-DiscGolf-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DF1B742DC18308C2AD70220E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E855F7FD0FEAB178FCEBE80D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DiscGolfTests/Pods-DiscGolfTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F4EFED49E6A9D9CDEDBF6E83 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DiscGolfTests/Pods-DiscGolfTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FA12080808671994C9566B8A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DiscGolfUITests/Pods-DiscGolfUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A639BFFC1F22878700AC299F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A639C0061F22878700AC299F /* ViewController.swift in Sources */,
+				A639C03B1F2C121800AC299F /* BlueCatsStuff.swift in Sources */,
+				A639C03D1F2C1C6300AC299F /* FeedViewController.swift in Sources */,
+				A639C0471F2C3B8A00AC299F /* BeaconDelegate.swift in Sources */,
+				A639C0411F2C1C9600AC299F /* DiscsViewController.swift in Sources */,
 				A639C0041F22878700AC299F /* AppDelegate.swift in Sources */,
 				A639C00C1F22878700AC299F /* DiscGolf.xcdatamodeld in Sources */,
+				A639C03F1F2C1C8300AC299F /* CoursesViewController.swift in Sources */,
+				A639C0431F2C213800AC299F /* DiscFinderViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,6 +637,7 @@
 		};
 		A639C02C1F22878800AC299F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0EB7026CD96628DD6C7AF18C /* Pods-DiscGolf.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = FSLX2JP624;
@@ -426,12 +645,14 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cjf.edu.luther.cs353.DiscGolf;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/$(PROJECT_NAME)-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		A639C02D1F22878800AC299F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3EF7A5122FD1336F1EA6A46A /* Pods-DiscGolf.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = FSLX2JP624;
@@ -439,12 +660,14 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cjf.edu.luther.cs353.DiscGolf;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/$(PROJECT_NAME)-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 		A639C02F1F22878800AC299F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 69B29AED930D56655437A1AE /* Pods-DiscGolfTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -460,6 +683,7 @@
 		};
 		A639C0301F22878800AC299F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B9280D49E10D194CBB21F6EB /* Pods-DiscGolfTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -475,6 +699,7 @@
 		};
 		A639C0321F22878800AC299F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1F666627044ABE48021B9BB7 /* Pods-DiscGolfUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = FSLX2JP624;
@@ -489,6 +714,7 @@
 		};
 		A639C0331F22878800AC299F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FECE3623CCEA6C6C667DF049 /* Pods-DiscGolfUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = FSLX2JP624;
@@ -520,6 +746,7 @@
 				A639C02D1F22878800AC299F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A639C02E1F22878800AC299F /* Build configuration list for PBXNativeTarget "DiscGolfTests" */ = {
 			isa = XCConfigurationList;
@@ -528,6 +755,7 @@
 				A639C0301F22878800AC299F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A639C0311F22878800AC299F /* Build configuration list for PBXNativeTarget "DiscGolfUITests" */ = {
 			isa = XCConfigurationList;
@@ -536,6 +764,7 @@
 				A639C0331F22878800AC299F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

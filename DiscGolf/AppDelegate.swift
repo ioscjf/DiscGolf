@@ -14,9 +14,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+
+        initBlueCatsSDK(appToken: "d096bcb6-f99c-4485-85fa-168656cb72fc")
         return true
     }
 
@@ -88,6 +89,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+    
+    // MARK: - BCSDK
+    func initBlueCatsSDK(appToken: String) {
+        //start the sdk using BCAppToken from our constants file AppConstants.h
+        BlueCatsSDK.startPurring(withAppToken: appToken, completion: {(_ status: BCStatus) -> Void in
+            if !BlueCatsSDK.isLocationAuthorized() {
+                BlueCatsSDK.requestAlwaysLocationAuthorization()
+                //Allows beacon ranging when the app is not in use.
+                //[BlueCatsSDK requestWhenInUseLocationAuthorization]; "WhenInUse" only allows beacon ranging when the app is used.
+                print("Location not authorized")
+                // alert user!!
+            }
+            if !BlueCatsSDK.isNetworkReachable() {
+                //The BlueCats SDK must have network connectivity at least once before ranging beacons.
+                //If this is the only error and the SDK has never reached the network purring will occur with network connectivity.
+                print("Network not reachable")
+                // alert user!!
+            }
+            if !BlueCatsSDK.isBluetoothEnabled() {
+                //Prompt user to enable bluetooth in settings.  If BLE is required for current functionality a modal is recommended.
+                print("Bluetooth not enabled")
+                // alert user!!
+            }
+        })
+    }
 
 }
-
