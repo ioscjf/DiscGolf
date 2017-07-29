@@ -14,9 +14,10 @@ class HistoryViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
-        SQL().addCourses()
-        SQL().getCourses()
+
+        // Testing SQLite!!
+//        SQL().addCourses()
+//        SQL().getCourses()
     }
 
     override func didReceiveMemoryWarning() {
