@@ -1,14 +1,14 @@
 //
-//  FeedViewController.swift
+//  SettingsViewController.swift
 //  DiscGolf
 //
-//  Created by Connor Fitzpatrick on 7/28/17.
+//  Created by Connor Fitzpatrick on 7/29/17.
 //  Copyright © 2017 Connor Fitzpatrick. All rights reserved.
 //
 
 import UIKit
 
-class FeedViewController: UIViewController {
+class SettingsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -1,24 +1,15 @@
 //
-//  DiscsViewController.swift
+//  HistoryViewController.swift
 //  DiscGolf
 //
-//  Created by Connor Fitzpatrick on 7/28/17.
+//  Created by Connor Fitzpatrick on 7/29/17.
 //  Copyright © 2017 Connor Fitzpatrick. All rights reserved.
 //
 
 import UIKit
 
-class DiscsViewController: UIViewController {
-    
-    // MARK: - Outlets
-    
-    @IBOutlet weak var discTable: UITableView!
+class HistoryViewController: UIViewController {
 
-    @IBAction func addDiscs(_ sender: UIButton) {
-    }
-    
-    // MARK: - Overrides
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 

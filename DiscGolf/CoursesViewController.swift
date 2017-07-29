@@ -9,11 +9,27 @@
 import UIKit
 
 class CoursesViewController: UIViewController {
+    
+    // MARK: - Outlets
+    
+    
+    @IBAction func filter(_ sender: UIButton) {
+    }
+    
+    @IBOutlet weak var courses: UITableView!
+    
+    // MARK: - Variables
+    
+    let courses: [Course] = [] // preload these into sqlite
+    var selectedCourse: Course?
 
+    // MARK: - Overrides
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,4 +48,26 @@ class CoursesViewController: UIViewController {
     }
     */
 
+}
+
+// MARK: - TableView Extension
+
+extension CoursesViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let count =  courses.count
+        return count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "disc", for: indexPath) as! StatPlayerTableViewCell
+        
+        let course = courses[(indexPath as NSIndexPath).row]
+        cell.configure(courses)
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedCourse = "\(players[indexPath.row]!)"
+    }
 }
