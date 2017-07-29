@@ -31,15 +31,14 @@ class DiscGolfViewController: UIViewController {
     var startingHole: Int = 1
     var numberOfHoles: Int = 18
     var myBeacon: BCBeacon? = nil
-    var locationManager: CLLocationManager?
+    var locationManager = CLLocationManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        locationManager = CLLocationManager()
-        locationManager?.delegate = self
-        locationManager?.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager?.startUpdatingLocation()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
         
         beaconManager = BCBeaconManager(delegate: self, queue: nil)
         BCEventManager.shared().delegate = self
@@ -65,7 +64,23 @@ class DiscGolfViewController: UIViewController {
 
 // MARK: - MapKit Extension
 
-extension DiscGolfViewController: CLLocationManagerDelegate {
+extension DiscGolfViewController: CLLocationManagerDelegate, MKMapViewDelegate {
+    private func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        manager.startUpdatingLocation()
+        
+        // alert user if not connected as exception handling (eventually)!!
+//        //    switch status {
+//        case .authorizedAlways, .authorizedWhenInUse:
+//        return
+//        
+//        case .denied, .restricted:
+//        print("location access denied")
+//        
+//        default:
+//        locationManager.requestWhenInUseAuthorization()
+//    }
+    }
+    
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
         let region: MKCoordinateRegion = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 200, 200)
         self.map?.setRegion((self.map?.regionThatFits(region))!, animated: true)

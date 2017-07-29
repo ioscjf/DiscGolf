@@ -412,11 +412,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="6WK-oq-nHL">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" showsBuildings="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6WK-oq-nHL">
                                 <rect key="frame" x="16" y="136" width="343" height="294"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="294" id="MCl-aH-1QU"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="98W-wH-xdp" id="Phd-Pv-h22"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
