@@ -13,9 +13,14 @@ class CourseSetupViewController: UIViewController {
     // MARK: - Outlets
     
     @IBAction func back(_ sender: UIBarButtonItem) {
+        if self.presentingViewController != nil {
+            self.dismiss(animated: false, completion: nil)
+        }
     }
     
     @IBAction func play(_ sender: UIBarButtonItem) {
+        // check that setup is all correct!!
+        self.performSegue(withIdentifier: "play", sender: sender)
     }
     
     @IBOutlet weak var numberOfPlayers: UITextField!
@@ -26,8 +31,8 @@ class CourseSetupViewController: UIViewController {
     // MARK: - Variables
     
     var beaconManager = BCBeaconManager()
-    var selectedDisc: BCBeacon?
-    var myDiscs: [BCBeacon]
+    var selectedDisc: BCBeacon? = nil
+    var myDiscs: [BCBeacon] = []
 
     // MARK: - Overrides
 
@@ -36,7 +41,6 @@ class CourseSetupViewController: UIViewController {
 
         beaconManager = BCBeaconManager(delegate: self, queue: nil)
         BCEventManager.shared().delegate = self
-        createBasicTrigger()
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,8 +52,7 @@ class CourseSetupViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "play" {
-            let destinationNavigationController = segue.destination as! UINavigationController
-            let dgvc = destinationNavigationController.topViewController as! DiscGolfViewController
+            let dgvc = segue.destination as! DiscGolfViewController
             
             dgvc.myBeacon = selectedDisc
             //dgvb.numberOfHoles = numberOfHoles
@@ -73,9 +76,9 @@ extension CourseSetupViewController:  BCBeaconManagerDelegate, BCEventManagerDel
         if beacons.count > 0 {
             for currentBeacon: BCBeacon in beacons {
                 if (currentBeacon.site != nil) {
-                    if !discs.contains(where: currentBeacon) {
+                    if !myDiscs.contains(currentBeacon) {
                         myDiscs.append(currentBeacon)
-                        tableView.performSelector(onMainThread: #selector(self.reloadData), with: nil, waitUntilDone: false)
+                        self.discs.reloadData()
                     }
                 }
             }
@@ -92,7 +95,7 @@ extension CourseSetupViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "disc", for: indexPath) as! StatPlayerTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "disc", for: indexPath) as! DiscTableViewCell
         
         let disc = myDiscs[(indexPath as NSIndexPath).row]
         cell.configure(disc)
@@ -101,6 +104,6 @@ extension CourseSetupViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedDisc = "\(myDiscs[indexPath.row]!)"
+        selectedDisc = myDiscs[indexPath.row]
     }
 }

@@ -20,8 +20,8 @@ class CoursesViewController: UIViewController {
     
     // MARK: - Variables
     
-    let courses: [Course] // preload these into sqlite
-    var selectedCourse: Course?
+    let myCourses: [Dictionary<String, AnyObject>]  = [[:]] // preload these into sqlite
+    var selectedCourse: Dictionary<String, AnyObject> = [:]
 
     // MARK: - Overrides
     
@@ -54,20 +54,20 @@ class CoursesViewController: UIViewController {
 
 extension CoursesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let count =  courses.count
+        let count =  myCourses.count
         return count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "course", for: indexPath) as! StatPlayerTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "course", for: indexPath) as! CourseTableViewCell
         
-        let course = courses[(indexPath as NSIndexPath).row]
-        cell.configure(courses)
+        let course = myCourses[(indexPath as NSIndexPath).row]
+        cell.configure(course)
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedCourse = "\(players[indexPath.row]!)"
+        selectedCourse = myCourses[indexPath.row]
     }
 }

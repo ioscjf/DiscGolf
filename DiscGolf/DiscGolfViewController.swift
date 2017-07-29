@@ -27,23 +27,22 @@ class DiscGolfViewController: UIViewController {
     
     var beaconManager = BCBeaconManager()
     let regionRadius: CLLocationDistance = 1000
-    let myPlayers: [String] = []
-    let startingHole: Int = 1
-    let numberOfHoles: Int = 18
-    let myBeacon: BCBeacon?
+    var myPlayers: [String] = []
+    var startingHole: Int = 1
+    var numberOfHoles: Int = 18
+    var myBeacon: BCBeacon? = nil
+    var locationManager: CLLocationManager?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        
-        let initialLocation = CLLocation(latitude: 21.282778, longitude: -157.829444)
-        
-        centerMapOnLocation(location: initialLocation)
+        locationManager = CLLocationManager()
+        locationManager?.delegate = self
+        locationManager?.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager?.startUpdatingLocation()
         
         beaconManager = BCBeaconManager(delegate: self, queue: nil)
         BCEventManager.shared().delegate = self
-        createBasicTrigger()
     }
 
     override func didReceiveMemoryWarning() {
@@ -66,11 +65,10 @@ class DiscGolfViewController: UIViewController {
 
 // MARK: - MapKit Extension
 
-extension DiscGolfViewController {
-    func centerMapOnLocation(location: CLLocation) {
-        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
-                                                                  regionRadius, regionRadius)
-        map.setRegion(coordinateRegion, animated: true)
+extension DiscGolfViewController: CLLocationManagerDelegate {
+    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+        let region: MKCoordinateRegion = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 200, 200)
+        self.map?.setRegion((self.map?.regionThatFits(region))!, animated: true)
     }
 }
 
@@ -89,7 +87,12 @@ extension DiscGolfViewController: BCBeaconManagerDelegate, BCEventManagerDelegat
         if beacons.count > 0 {
             for currentBeacon: BCBeacon in beacons {
                 if myBeacon == currentBeacon {
-                    distance.text = "\(currentBeacon.accuracy)"
+                    if currentBeacon.accuracy == -1 {
+                        distance.text = "Unknown (m)"
+                    } else {
+                        
+                        distance.text = "\(String(format:"%.2f", currentBeacon.accuracy)) (m)"
+                    }
                 }
             }
         }
@@ -105,7 +108,7 @@ extension DiscGolfViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "player", for: indexPath) as! StatPlayerTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "player", for: indexPath) as! PlayerTableViewCell
         
         let player = myPlayers[(indexPath as NSIndexPath).row]
         cell.configure(player)

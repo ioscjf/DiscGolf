@@ -65,7 +65,7 @@
                                 <rect key="frame" x="16" y="66" width="338" height="544"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="course" rowHeight="124" id="Zjd-la-HD6">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="course" rowHeight="124" id="Zjd-la-HD6" customClass="CourseTableViewCell" customModule="DiscGolf" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="338" height="124"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zjd-la-HD6" id="VSP-Up-Q0b">
@@ -124,6 +124,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="courseName" destination="86H-5Y-Kb7" id="fJq-kE-8wU"/>
+                                            <outlet property="location" destination="olU-N2-kyM" id="gMc-ej-tEI"/>
+                                            <outlet property="numberOfHoles" destination="6LM-BZ-U3M" id="oBB-rs-gye"/>
+                                            <outlet property="totalDistance" destination="t7C-7a-N3w" id="dXj-WJ-CvL"/>
+                                            <outlet property="totalPar" destination="z57-09-E7d" id="lqu-Or-31q"/>
                                             <segue destination="1l6-px-UlF" kind="showDetail" id="RTZ-AQ-WHx"/>
                                         </connections>
                                     </tableViewCell>
@@ -342,7 +347,7 @@
                                     <constraint firstAttribute="height" constant="171" id="frG-G5-qZ3"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="player" rowHeight="47" id="gHo-y6-DCQ">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="player" rowHeight="47" id="gHo-y6-DCQ" customClass="PlayerTableViewCell" customModule="DiscGolf" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="343" height="47"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gHo-y6-DCQ" id="sPK-lo-1vG">
@@ -374,6 +379,10 @@
                                                 <constraint firstItem="sr9-lj-Lc5" firstAttribute="leading" secondItem="9OH-8f-Hbk" secondAttribute="trailing" constant="8" symbolic="YES" id="wxW-pV-fXb"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="playerName" destination="9OH-8f-Hbk" id="FKF-4F-VXf"/>
+                                            <outlet property="playerScore" destination="sr9-lj-Lc5" id="rpd-m4-CX3"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
