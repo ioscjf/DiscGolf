@@ -27,9 +27,10 @@ class DiscGolfViewController: UIViewController {
     
     var beaconManager = BCBeaconManager()
     let regionRadius: CLLocationDistance = 1000
-    let players: [String] = []
+    let myPlayers: [String] = []
     let startingHole: Int = 1
     let numberOfHoles: Int = 18
+    let myBeacon: BCBeacon?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,62 +86,30 @@ extension DiscGolfViewController: BCBeaconManagerDelegate, BCEventManagerDelegat
     }
     
     func beaconManager(_ monitor: BCBeaconManager, didRangeBeacons beacons: [BCBeacon]) {
-        //    This delegate method is going to show how you can add items to an array by getting the detail on your beacons by hand - showing the difference from EvenFilters.
-        // Note you have to manually check the site, and the category - so you're searching through each beacon ranged to do this - eventfilters get rid of the need to do this.
         if beacons.count > 0 {
             for currentBeacon: BCBeacon in beacons {
-                if (currentBeacon.site != nil) {
-                    // We need to check the site because we can see all beacons within the beacon team - especially if beacons and site aren't in private mode.
-                    if currentBeacon.categories.count > 0 {
-                        var myCATegories = currentBeacon.categories
-                        for currentCategory in myCATegories! {
-                            if ((currentCategory as AnyObject).name == "Attendee") {
-                                //                                if !nearbyAttendees.contains(where: currentBeacon) {
-                                //                                    // Get current beacon details and create an attendee object
-                                //                                    nearbyAttendees.append(currentBeacon)
-                                ////                                    tableView.performSelector(onMainThread: #selector(self.reloadData), with: nil, waitUntilDone: false)
-                                //                                    // Only reload table data on new beacons - don't forget beacon sightings happen a lot!
-                                //                                    print("Added \(currentBeacon.name)")
-                                //                                }
-                                print("Added \(currentBeacon.name)")
-                                
-                            }
-                        }
-                    }
+                if myBeacon == currentBeacon {
+                    distance.text = "\(currentBeacon.accuracy)"
                 }
             }
         }
-        print(beacons[0].accuracy)
-        print(beacons[0].batteryStatus)
-        print(beacons[0].beaconMode)
-        print(beacons[0].mapPoint)
-        print(beacons[0].proximity.rawValue)
-        print(beacons[0].proximity.hashValue)
-        print(beacons[0].rssi)
-        print("\n\n\n\n")
+    }
+}
+
+// MARK: - TableView Extension
+
+extension DiscGolfViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let count =  myPlayers.count
+        return count
     }
     
-    func createBasicTrigger(){
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "player", for: indexPath) as! StatPlayerTableViewCell
         
-        //generates a trigger with a random identifier
-        let trigger: BCTrigger! = BCTrigger()
+        let player = myPlayers[(indexPath as NSIndexPath).row]
+        cell.configure(player)
         
-        //add your filters
-        //filter by site
-        trigger.add(BCEventFilter.bySitesNamed(["DiscFinder"]))
-        //filter to within 10cm
-        //        trigger.add(BCEventFilter.byAccuracyRange(from: 0.0, to: 0.1))
-        
-        
-        //repeat indefinitely, or however many times you want
-        trigger.repeatCount = NSIntegerMax
-        
-        //add your trigger to the event manager
-        BCEventManager.shared().monitorEvent(with: trigger)
-    }
-    
-    func eventManager(_ eventManager: BCEventManager!, triggeredEvent: BCTriggeredEvent!) {
-        //do something with the filtered micro-location here when the trigger is fired
-        
+        return cell
     }
 }

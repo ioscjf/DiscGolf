@@ -14,7 +14,8 @@
 		A61996C81F2C8AA1005A66F7 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61996C71F2C8AA1005A66F7 /* HistoryViewController.swift */; };
 		A61996CA1F2C8BA2005A66F7 /* CourseSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61996C91F2C8BA2005A66F7 /* CourseSetupViewController.swift */; };
 		A61996CC1F2C8C1D005A66F7 /* DiscGolfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61996CB1F2C8C1D005A66F7 /* DiscGolfViewController.swift */; };
-		A61996CE1F2C923E005A66F7 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61996CD1F2C923E005A66F7 /* Course.swift */; };
+		A61996D01F2C9975005A66F7 /* SQL.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61996CF1F2C9975005A66F7 /* SQL.swift */; };
+		A61996D21F2C9E2E005A66F7 /* DiscTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61996D11F2C9E2E005A66F7 /* DiscTableViewCell.swift */; };
 		A639C0041F22878700AC299F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A639C0031F22878700AC299F /* AppDelegate.swift */; };
 		A639C0091F22878700AC299F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A639C0071F22878700AC299F /* Main.storyboard */; };
 		A639C00C1F22878700AC299F /* DiscGolf.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A639C00A1F22878700AC299F /* DiscGolf.xcdatamodeld */; };
@@ -55,7 +56,8 @@
 		A61996C71F2C8AA1005A66F7 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		A61996C91F2C8BA2005A66F7 /* CourseSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseSetupViewController.swift; sourceTree = "<group>"; };
 		A61996CB1F2C8C1D005A66F7 /* DiscGolfViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscGolfViewController.swift; sourceTree = "<group>"; };
-		A61996CD1F2C923E005A66F7 /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
+		A61996CF1F2C9975005A66F7 /* SQL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQL.swift; sourceTree = "<group>"; };
+		A61996D11F2C9E2E005A66F7 /* DiscTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscTableViewCell.swift; sourceTree = "<group>"; };
 		A639C0001F22878700AC299F /* DiscGolf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiscGolf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A639C0031F22878700AC299F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A639C0081F22878700AC299F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 			children = (
 				A639C03E1F2C1C8300AC299F /* CoursesViewController.swift */,
 				A61996C91F2C8BA2005A66F7 /* CourseSetupViewController.swift */,
+				A61996D11F2C9E2E005A66F7 /* DiscTableViewCell.swift */,
 				A61996CB1F2C8C1D005A66F7 /* DiscGolfViewController.swift */,
 			);
 			name = "Disc Golf";
@@ -186,7 +189,7 @@
 				A61996C31F2C8995005A66F7 /* Disc Golf */,
 				A61996C41F2C89C3005A66F7 /* Settings */,
 				A639C0421F2C213800AC299F /* DiscFinderViewController.swift */,
-				A61996CD1F2C923E005A66F7 /* Course.swift */,
+				A61996CF1F2C9975005A66F7 /* SQL.swift */,
 				A639C0031F22878700AC299F /* AppDelegate.swift */,
 				A639C0391F2C099500AC299F /* DiscGolf-Bridging-Header.h */,
 				A639C0071F22878700AC299F /* Main.storyboard */,
@@ -505,12 +508,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A61996CE1F2C923E005A66F7 /* Course.swift in Sources */,
 				A61996CA1F2C8BA2005A66F7 /* CourseSetupViewController.swift in Sources */,
 				A61996CC1F2C8C1D005A66F7 /* DiscGolfViewController.swift in Sources */,
 				A639C0041F22878700AC299F /* AppDelegate.swift in Sources */,
 				A639C00C1F22878700AC299F /* DiscGolf.xcdatamodeld in Sources */,
+				A61996D21F2C9E2E005A66F7 /* DiscTableViewCell.swift in Sources */,
 				A639C03F1F2C1C8300AC299F /* CoursesViewController.swift in Sources */,
+				A61996D01F2C9975005A66F7 /* SQL.swift in Sources */,
 				A639C0431F2C213800AC299F /* DiscFinderViewController.swift in Sources */,
 				A61996C81F2C8AA1005A66F7 /* HistoryViewController.swift in Sources */,
 				A61996C61F2C89EE005A66F7 /* SettingsViewController.swift in Sources */,

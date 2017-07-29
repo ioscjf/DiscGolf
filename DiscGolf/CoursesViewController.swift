@@ -20,7 +20,7 @@ class CoursesViewController: UIViewController {
     
     // MARK: - Variables
     
-    let courses: [Course] = [] // preload these into sqlite
+    let courses: [Course] // preload these into sqlite
     var selectedCourse: Course?
 
     // MARK: - Overrides
@@ -59,7 +59,7 @@ extension CoursesViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "disc", for: indexPath) as! StatPlayerTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "course", for: indexPath) as! StatPlayerTableViewCell
         
         let course = courses[(indexPath as NSIndexPath).row]
         cell.configure(courses)

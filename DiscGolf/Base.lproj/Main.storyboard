@@ -58,9 +58,7 @@
                                 <state key="normal" title="Filter"/>
                                 <connections>
                                     <action selector="filter:" destination="oCZ-cY-keY" eventType="touchUpInside" id="jC4-Wp-8o3"/>
-                                    <segue destination="fH4-YQ-d3Z" kind="popoverPresentation" popoverAnchorView="bUS-iF-UUM" id="ZbC-i7-KPi">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
+                                    <segue destination="1l6-px-UlF" kind="showDetail" id="gJ0-3g-T6I"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="124" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="B9d-vt-SGv">
@@ -199,7 +197,7 @@
                                 <rect key="frame" x="16" y="186" width="343" height="461"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="disc" rowHeight="66" id="zMI-tN-9Hr">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="disc" rowHeight="66" id="zMI-tN-9Hr" customClass="DiscTableViewCell" customModule="DiscGolf" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="343" height="66"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zMI-tN-9Hr" id="wCR-mL-5Sl">
@@ -228,6 +226,10 @@
                                                 <constraint firstItem="pVu-0A-ySx" firstAttribute="top" secondItem="wCR-mL-5Sl" secondAttribute="topMargin" id="xfH-bJ-x0s"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="beaconName" destination="pVu-0A-ySx" id="ATj-Yr-XbR"/>
+                                            <outlet property="serialNumber" destination="naK-AO-ln8" id="QVt-5r-yNV"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -284,7 +286,7 @@
                         <outlet property="numberOfHoles" destination="5Fh-oW-EvI" id="OLJ-gQ-URT"/>
                         <outlet property="numberOfPlayers" destination="zWd-V9-Zot" id="uCT-4v-ci7"/>
                         <outlet property="startingHole" destination="wNi-dk-HkB" id="7hd-l8-kJk"/>
-                        <segue destination="98W-wH-xdp" kind="showDetail" id="DoT-Uh-eKl"/>
+                        <segue destination="98W-wH-xdp" kind="showDetail" identifier="play" id="DoT-Uh-eKl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bzm-4X-apT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -622,6 +624,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="gJ0-3g-T6I"/>
         <segue reference="LE5-IZ-xJZ"/>
     </inferredMetricsTieBreakers>
 </document>
