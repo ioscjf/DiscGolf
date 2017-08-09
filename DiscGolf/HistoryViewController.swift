@@ -14,6 +14,10 @@ class HistoryViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        SQL().dropCourseTable()
+        SQL().dropHoleTable()
+        
 
         // Testing SQLite!!
         SQL().createCourseTable()

@@ -127,7 +127,7 @@ class SQL {
             let courses = Table("courses")
             let holes = Table("holes")
             let id = Expression<Int64>("id")
-            let course_id = Expression<Int64>("couse_id")
+            let course_id = Expression<Int64>("course_id")
             let tee1lat = Expression<Double>("tee1lat")
             let tee1long = Expression<Double>("tee1long")
             let tee2lat = Expression<Double>("tee2lat")
@@ -146,7 +146,6 @@ class SQL {
                 let _ = try db.run(holes.create { t in
                     t.column(id, primaryKey: .autoincrement)
                     t.column(course_id)
-//                    t.foreignKey(course_id, references: courses, id, delete: .setNull)
                     t.column(tee1lat)
                     t.column(tee1long)
                     t.column(tee2lat)
@@ -160,6 +159,7 @@ class SQL {
                     t.column(basket3lat)
                     t.column(basket3long)
                     t.column(par)
+                    t.foreignKey(course_id, references: courses, id, delete: .setNull)
                 })
             } catch {
                 print("Function: \(#function), line: \(#line) error \(error)")
@@ -236,13 +236,53 @@ class SQL {
                 let hs = try db.prepare(holes)
                 
                 for holes in hs {
-                    print("id: \(holes[id]), course_id: \(holes[course_id]), tee1lat: \(holes[tee1lat]), tee1long: \(holes[tee1long]), tee2lat: \(holes[tee2lat]), tee2long: \(holes[tee2long]), tee3lat: \(holes[tee3lat]), tee3long: \(holes[tee3long]), basket2lat: \(holes[basket1lat]), basket1long: \(holes[basket1long]), basket2lat: \(holes[basket2lat]), basket2long: \(holes[basket2long]), basket3lat: \(holes[basket3lat]), basket3long: \(holes[basket3long]), par: \(holes[par])")
+                    print("id: \(holes[id]), course_id: \(holes[course_id]), tee1lat: \(holes[tee1lat]), tee1long: \(holes[tee1long]), tee2lat: \(holes[tee2lat]), tee2long: \(holes[tee2long]), tee3lat: \(holes[tee3lat]), tee3long: \(holes[tee3long]), basket1lat: \(holes[basket1lat]), basket1long: \(holes[basket1long]), basket2lat: \(holes[basket2lat]), basket2long: \(holes[basket2long]), basket3lat: \(holes[basket3lat]), basket3long: \(holes[basket3long]), par: \(holes[par])")
                 }
             } catch {
                 print("Function: \(#function), line: \(#line) error \(error)")
             }
         } catch {
             print("Function: \(#function), line: \(#line) error \(error)")
+        }
+    }
+    
+    func dropCourseTable() {
+        let path = NSSearchPathForDirectoriesInDomains(
+            .documentDirectory, .userDomainMask, true
+            ).first!
+        
+        do {
+            let db = try Connection("\(path)/courses.sqlite3")
+            let courses = Table("courses")
+            
+            do {
+                try db.run(courses.drop())
+                
+            } catch {
+                print("Funciton: \(#function), line: \(#line) error \(error)")
+            }
+        } catch {
+            print("Funciton: \(#function), line: \(#line) error \(error)")
+        }
+    }
+    
+    func dropHoleTable() {
+        let path = NSSearchPathForDirectoriesInDomains(
+            .documentDirectory, .userDomainMask, true
+            ).first!
+        
+        do {
+            let db = try Connection("\(path)/courses.sqlite3")
+            let holes = Table("holes")
+            
+            do {
+                try db.run(holes.drop())
+                
+            } catch {
+                print("Funciton: \(#function), line: \(#line) error \(error)")
+            }
+        } catch {
+            print("Funciton: \(#function), line: \(#line) error \(error)")
         }
     }
 }
