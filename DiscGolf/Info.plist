@@ -21,9 +21,11 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSBluetoothPeripheralUsageDescription</key>
-	<string>Using Bluetooth for proximity detection to device</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Bluetooth proximity detection when the app is in the background</string>
+	<string>DiscFinder uses Bluetooth proximity to help you find your discs</string>
+	<key>NSCameraUsageDescription</key>
+	<string>DiscFinder uses the camera to add pictures to new courses</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>DiscFinder uses Bluetooth and your location to help you find your discs</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>bluetooth-central</string>

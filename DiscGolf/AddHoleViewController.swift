@@ -20,8 +20,7 @@ class AddHoleViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     @IBAction func takePhoto(_ sender: UIButton) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
-            var imagePicker = UIImagePickerController()
-            imagePicker.delegate = self as! UIImagePickerControllerDelegate & UINavigationControllerDelegate
+            imagePicker.delegate = self as UIImagePickerControllerDelegate & UINavigationControllerDelegate
             imagePicker.sourceType = UIImagePickerControllerSourceType.camera;
             imagePicker.allowsEditing = false
             self.present(imagePicker, animated: true, completion: nil)
@@ -39,6 +38,10 @@ class AddHoleViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     @IBAction func submit(_ sender: UIButton) {
     }
+    
+    // MARK: - Variables
+    
+    let imagePicker = UIImagePickerController()
     
     // MARK: - Overrides
 
@@ -63,5 +66,12 @@ class AddHoleViewController: UIViewController, UIImagePickerControllerDelegate, 
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            selectedImage.image = image
+        }
+        
+        imagePicker.dismiss(animated: true, completion: nil);
+    }
 }
