@@ -180,6 +180,7 @@
                         <outlet property="instructions" destination="nNU-rf-cwU" id="BTY-Xc-ejb"/>
                         <outlet property="par" destination="HH6-Ya-6To" id="cqN-I8-bOx"/>
                         <outlet property="selectedImage" destination="Omd-Zd-ZuJ" id="jO8-bg-hB3"/>
+                        <segue destination="98W-wH-xdp" kind="showDetail" id="XyU-1I-HpJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zat-Mu-vFj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -610,6 +611,7 @@
                         <outlet property="par" destination="0DL-JC-tRo" id="cIO-16-jjt"/>
                         <outlet property="players" destination="fVC-z3-BF8" id="yKb-bJ-6rP"/>
                         <segue destination="ms4-cN-fvf" kind="showDetail" id="LE5-IZ-xJZ"/>
+                        <segue destination="QJD-WQ-4xU" kind="showDetail" id="f5k-kB-HQT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="52d-fM-ek8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -811,6 +813,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="f5k-kB-HQT"/>
+        <segue reference="XyU-1I-HpJ"/>
         <segue reference="LE5-IZ-xJZ"/>
     </inferredMetricsTieBreakers>
 </document>
