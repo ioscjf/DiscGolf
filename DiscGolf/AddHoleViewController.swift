@@ -25,18 +25,12 @@ class AddHoleViewController: UIViewController, UIImagePickerControllerDelegate, 
             imagePicker.allowsEditing = false
             self.present(imagePicker, animated: true, completion: nil)
         } else {
-            let alertController = UIAlertController(title: "There seems to be an issue with your camera", message: "Please check that the camera is working on your device, and that DiscFinder has permission to use it in your settings.", preferredStyle: UIAlertControllerStyle.alert)
-            
-            let no = UIAlertAction(title: "No", style: UIAlertActionStyle.default) {
-                (result : UIAlertAction) -> Void in
-            }
-            
-            alertController.addAction(no)
-            self.present(alertController, animated: true, completion: nil)
+            alert(title: "There seems to be an issue with your camer", body: "Please check that the camera is working on your device, and that DiscFinder has permission to use it in your settings")
         }
     }
     
     @IBAction func submit(_ sender: UIButton) {
+        
     }
     
     // MARK: - Variables
@@ -72,6 +66,32 @@ class AddHoleViewController: UIViewController, UIImagePickerControllerDelegate, 
             selectedImage.image = image
         }
         
-        imagePicker.dismiss(animated: true, completion: nil);
+        imagePicker.dismiss(animated: true, completion: nil)
+    }
+    
+    func saveImageDocumentDirectory(basketOrHole: String, imageName: String) {
+        let fileManager = FileManager.default
+        let paths = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent(imageName)
+        let image = selectedImage.image
+        
+        if let i = image { // compress the image!!
+            print(paths) // add this to the database!!
+            let imageData = UIImageJPEGRepresentation(i, 0.5)
+            fileManager.createFile(atPath: paths as String, contents: imageData, attributes: nil)
+        } else {
+            alert(title: "Oops!", body: "You need to take a picture of the \(basketOrHole) before submitting the hole")
+        }
+    }
+    
+    func alert(title: String, body: String) {
+            let alertController = UIAlertController(title: title, message: body, preferredStyle: UIAlertControllerStyle.alert)
+        
+        let ok = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
+            (result : UIAlertAction) -> Void in
+        }
+        
+        alertController.addAction(ok)
+        self.present(alertController, animated: true, completion: nil)
     }
 }
+
