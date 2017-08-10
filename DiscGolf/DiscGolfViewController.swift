@@ -68,7 +68,8 @@ extension DiscGolfViewController: CLLocationManagerDelegate, MKMapViewDelegate {
     private func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         manager.startUpdatingLocation()
         
-        // alert user if not connected as exception handling (eventually)!!
+        // use this stuff!!
+//         alert user if not connected as exception handling (eventually)!!
 //        //    switch status {
 //        case .authorizedAlways, .authorizedWhenInUse:
 //        return

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddHoleViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class AddHoleViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate {
     
     // MARK: - Outlets
     
@@ -36,13 +36,23 @@ class AddHoleViewController: UIViewController, UIImagePickerControllerDelegate, 
     // MARK: - Variables
     
     let imagePicker = UIImagePickerController()
+    let locationManager = CLLocationManager()
+    let currentLongitude = 0.0
+    let currentLatitude = 0.0
     
     // MARK: - Overrides
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        // For use in foreground
+        self.locationManager.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -92,6 +102,11 @@ class AddHoleViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         alertController.addAction(ok)
         self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
+        print("locations = \(locValue.latitude) \(locValue.longitude)")
     }
 }
 
