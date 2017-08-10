@@ -46,10 +46,10 @@
             </objects>
             <point key="canvasLocation" x="581.60000000000002" y="844.22788605697156"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Course View Controller-->
         <scene sceneID="gth-4Q-jEx">
             <objects>
-                <viewController id="u6G-Zt-UIs" sceneMemberID="viewController">
+                <viewController id="u6G-Zt-UIs" customClass="AddCourseViewController" customModule="DiscGolf" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="oPe-UN-let"/>
                         <viewControllerLayoutGuide type="bottom" id="5d5-OO-9Vs"/>
@@ -64,25 +64,51 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="u6G-Zt-UIs" id="sp9-vq-hFm"/>
+                                </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Number Of Holes" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jYD-iL-h4M">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Number Of Holes (18)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jYD-iL-h4M">
                                 <rect key="frame" x="16" y="110" width="343" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="u6G-Zt-UIs" id="76g-s3-4Ck"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Starting Hole (1)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7mU-L7-3fh">
+                                <rect key="frame" x="16" y="148" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="u6G-Zt-UIs" id="FyL-rN-7Og"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="56H-GK-ou7">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="I1H-k0-hDT"/>
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="I1H-k0-hDT">
+                            <connections>
+                                <action selector="back:" destination="u6G-Zt-UIs" id="u0Y-11-sK7"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Play!" id="5eu-8i-XOE">
                             <connections>
-                                <segue destination="QJD-WQ-4xU" kind="showDetail" id="Vi4-lx-FUw"/>
+                                <action selector="play:" destination="u6G-Zt-UIs" id="aI9-VY-lul"/>
+                                <segue destination="QJD-WQ-4xU" kind="showDetail" identifier="newCourse" id="Vi4-lx-FUw"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="courseName" destination="afC-Fy-ND0" id="y0l-Ux-CEh"/>
+                        <outlet property="numberOfHoles" destination="jYD-iL-h4M" id="Elx-rs-k3G"/>
+                        <outlet property="startingHole" destination="7mU-L7-3fh" id="EzS-G9-u02"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xyh-2Q-Wew" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -114,12 +140,19 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="b82-bZ-UiA"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="QJD-WQ-4xU" id="Bjo-ZM-z3k"/>
+                                    <outlet property="delegate" destination="QJD-WQ-4xU" id="252-Jh-VBB"/>
+                                </connections>
                             </pickerView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Par (Optional)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HH6-Ya-6To">
                                 <rect key="frame" x="16" y="579" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="QJD-WQ-4xU" id="cyc-y3-mat"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IUx-xu-jOQ">
                                 <rect key="frame" x="16" y="617" width="343" height="30"/>
@@ -141,7 +174,7 @@
                                     <action selector="takePhoto:" destination="QJD-WQ-4xU" eventType="touchUpInside" id="hOT-mo-NHq"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tee Pad" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2v5-KH-Ewj">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tee Pad Number/Letter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2v5-KH-Ewj">
                                 <rect key="frame" x="16" y="482" width="343" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -204,6 +237,7 @@
                                 <state key="normal" title="Filter"/>
                                 <connections>
                                     <action selector="filter:" destination="oCZ-cY-keY" eventType="touchUpInside" id="jC4-Wp-8o3"/>
+                                    <segue destination="1l6-px-UlF" kind="showDetail" id="fUZ-ol-nvo"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="124" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="B9d-vt-SGv">
@@ -611,7 +645,7 @@
                         <outlet property="par" destination="0DL-JC-tRo" id="cIO-16-jjt"/>
                         <outlet property="players" destination="fVC-z3-BF8" id="yKb-bJ-6rP"/>
                         <segue destination="ms4-cN-fvf" kind="showDetail" id="LE5-IZ-xJZ"/>
-                        <segue destination="QJD-WQ-4xU" kind="showDetail" id="f5k-kB-HQT"/>
+                        <segue destination="QJD-WQ-4xU" kind="showDetail" identifier="newHole" id="f5k-kB-HQT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="52d-fM-ek8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -813,7 +847,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="f5k-kB-HQT"/>
+        <segue reference="fUZ-ol-nvo"/>
+        <segue reference="Vi4-lx-FUw"/>
         <segue reference="XyU-1I-HpJ"/>
         <segue reference="LE5-IZ-xJZ"/>
     </inferredMetricsTieBreakers>

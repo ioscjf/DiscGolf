@@ -21,6 +21,12 @@ class DiscGolfViewController: UIViewController {
     @IBOutlet weak var players: UITableView!
     
     @IBAction func nextHole(_ sender: UIButton) {
+        if isAnewCourse {
+            // navigate to the other view controller to add a hole/basket
+            self.performSegue(withIdentifier: "newHole", sender: self)
+        } else {
+            // refresh the screen with the next hole's information
+        }
     }
     
     // MARK: - Variables
@@ -32,6 +38,8 @@ class DiscGolfViewController: UIViewController {
     var numberOfHoles: Int = 18
     var myBeacon: BCBeacon? = nil
     var locationManager = CLLocationManager()
+    
+    var isAnewCourse = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,17 +57,25 @@ class DiscGolfViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-    }
-    */
+        
+        if segue.identifier == "newHole" {
+            let ahvc = segue.destination as! AddHoleViewController
 
+            // fix!!
+//            ahvc.teeOrBasket = "tee" // dynamic
+//            ahvc.holeNumber = Int(holeNumber.text)
+//            psvc.nameFirst = nameFirst
+//            psvc.nameLast = nameLast
+//            psvc.team = team
+//            psvc.opponent = opponent
+        }
+    }
 }
 
 // MARK: - MapKit Extension
