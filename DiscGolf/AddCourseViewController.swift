@@ -39,17 +39,6 @@ class AddCourseViewController: UIViewController {
         }
     }
     
-    
-
-//    let name = Expression<String>("name")
-//    let latitude = Expression<Double>("latitude")
-//    let longitude = Expression<Double>("longitude")
-//    let rating = Expression<Double>("rating")
-//    let totalPar = Expression<Int>("totalPar")
-//    let numberOfHoles = Expression<Int>("numberOfHoles")
-//    let totalDistance = Expression<Double>("totalDistance")
-//    let isUploaded = Expression<Bool>("isUploaded")
-    
     // MARK: - Variables
     
     var activeTextField = UITextField()
@@ -89,14 +78,6 @@ class AddCourseViewController: UIViewController {
         if segue.identifier == "newCourse" {
             let ahvc = segue.destination as! AddHoleViewController
             ahvc.course_id = courseID
-            ahvc.course_name = name
-            ahvc.course_lat = lat
-            ahvc.course_long = long
-            ahvc.course_distance = distance
-            ahvc.course_par = totalpar
-            ahvc.course_holeCount = holeCount
-            ahvc.course_rating = rating
-            ahvc.course_uploaded = uploaded
             
             ahvc.teeOrBasket = "tee"
         }

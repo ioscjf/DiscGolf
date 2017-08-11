@@ -149,6 +149,33 @@ class SQL {
         }
     }
     
+    func getCourse(courseID: Int) -> [String: AnyObject] {
+        let courses = Table("courses")
+        let id = Expression<Int>("id")
+        let name = Expression<String>("name")
+        let latitude = Expression<Double>("latitude")
+        let longitude = Expression<Double>("longitude")
+        let rating = Expression<Double>("rating")
+        let totalPar = Expression<Int>("totalPar")
+        let numberOfHoles = Expression<Int>("numberOfHoles")
+        let totalDistance = Expression<Double>("totalDistance")
+        let isUploaded = Expression<Bool>("isUploaded")
+        let query = courses.select(name, latitude, longitude, rating, totalPar, numberOfHoles, totalDistance, isUploaded)           // SELECT * FROM "courses"
+            .filter(id == courseID)                   // WHERE courses.id == "courseID"
+        
+        var dict = [String: AnyObject]()
+        dict["name"] = query[name] as AnyObject
+        dict["latitude"] = query[latitude] as AnyObject
+        dict["longitude"] = query[longitude] as AnyObject
+        dict["rating"] = query[rating] as AnyObject
+        dict["totalPar"] = query[totalPar] as AnyObject
+        dict["numberOfHoles"] = query[numberOfHoles] as AnyObject
+        dict["totalDistance"] = query[totalDistance] as AnyObject
+        dict["isUploaded"] = query[isUploaded] as AnyObject
+        
+        return dict
+    }
+    
     func updateHole(idNum: Int, holecourse_id: Int, holetee1lat: Double, holetee1long: Double, holetee2lat: Double, holetee2long: Double, holetee3lat: Double, holetee3long: Double, holebasket1lat: Double, holebasket1long: Double, holebasket2lat: Double, holebasket2long: Double, holebasket3lat: Double, holebasket3long: Double, holepar: Int, holetee1picPath: String, holetee2picPath: String, holetee3picPath: String, holebasket1picPath: String, holebasket2picPath: String, holebasket3picPath: String) {
         let path = NSSearchPathForDirectoriesInDomains(
             .documentDirectory, .userDomainMask, true
@@ -298,6 +325,57 @@ class SQL {
             print("Function: \(#function), line: \(#line) error \(error)")
         }
         return nil
+    }
+    
+    func getHole(holeId: Int) -> [String: AnyObject] {
+        let holes = Table("holes")
+        let id = Expression<Int>("id")
+        let course_id = Expression<Int>("course_id")
+        let tee1picPath = Expression<String>("tee1picPath")
+        let tee1lat = Expression<Double>("tee1lat")
+        let tee1long = Expression<Double>("tee1long")
+        let tee2picPath = Expression<String>("tee2picPath")
+        let tee2lat = Expression<Double>("tee2lat")
+        let tee2long = Expression<Double>("tee2long")
+        let tee3picPath = Expression<String>("tee3picPath")
+        let tee3lat = Expression<Double>("tee3lat")
+        let tee3long = Expression<Double>("tee3long")
+        let basket1picPath = Expression<String>("basket1picPath")
+        let basket1lat = Expression<Double>("basket1lat")
+        let basket1long = Expression<Double>("basket1long")
+        let basket2picPath = Expression<String>("basket2picPath")
+        let basket2lat = Expression<Double>("basket2lat")
+        let basket2long = Expression<Double>("basket2long")
+        let basket3picPath = Expression<String>("basket3picPath")
+        let basket3lat = Expression<Double>("basket3lat")
+        let basket3long = Expression<Double>("basket3long")
+        let par = Expression<Int>("par")
+        let query = holes.select(course_id, tee1picPath, tee1lat, tee1long, tee2picPath, tee2lat, tee2long, tee3picPath, tee3lat, tee3long, basket1picPath, basket1lat, basket1long, basket2picPath, basket2lat, basket2long, basket3picPath, basket3lat, basket3long, par)           // SELECT * FROM "holes"
+            .filter(id == holeId)                   // WHERE holes.id == "holeID"
+            
+        var dict = [String: AnyObject]()
+        dict["courseID"] = query[course_id] as AnyObject
+        dict["tee1picPath"] = query[tee1picPath] as AnyObject
+        dict["tee1lat"] = query[tee1lat] as AnyObject
+        dict["tee1long"] = query[tee1long] as AnyObject
+        dict["tee2picPath"] = query[tee2picPath] as AnyObject
+        dict["tee2lat"] = query[tee2lat] as AnyObject
+        dict["tee2long"] = query[tee2long] as AnyObject
+        dict["tee3picPath"] = query[tee3picPath] as AnyObject
+        dict["tee3lat"] = query[tee3lat] as AnyObject
+        dict["tee3long"] = query[tee3long] as AnyObject
+        dict["basket1picPath"] = query[basket1picPath] as AnyObject
+        dict["basket1lat"] = query[basket1lat] as AnyObject
+        dict["basket1long"] = query[basket1long] as AnyObject
+        dict["basket2picPath"] = query[basket2picPath] as AnyObject
+        dict["basket2lat"] = query[basket2lat] as AnyObject
+        dict["basket2long"] = query[basket2long] as AnyObject
+        dict["basket3picPath"] = query[basket3picPath] as AnyObject
+        dict["basket3lat"] = query[basket3lat] as AnyObject
+        dict["basket3long"] = query[basket3long] as AnyObject
+        dict["par"] = query[par] as AnyObject
+        
+        return dict
     }
     
     func getHoles() {
