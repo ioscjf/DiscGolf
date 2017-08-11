@@ -12,7 +12,6 @@ import SQLite
 class SQL {
     func getCourses() {
         
-        // add a drop table!!
         // add select course id!!
         // add scores
         // add players
@@ -59,7 +58,6 @@ class SQL {
             let db = try Connection("\(path)/courses.sqlite3")
             
             let courses = Table("courses")
-            let id = Expression<Int64>("id")
             let name = Expression<String>("name")
             let latitude = Expression<Double>("latitude")
             let longitude = Expression<Double>("longitude")
@@ -111,6 +109,77 @@ class SQL {
                     t.column(totalDistance)
                     t.column(isUploaded)
                 })
+            } catch {
+                print("Function: \(#function), line: \(#line) error \(error)")
+            }
+        } catch {
+            print("Function: \(#function), line: \(#line) error \(error)")
+        }
+    }
+    
+    func updateCourse(idNum: Int, courseName: String, courseLatitude: Double, courseLongitude: Double, courseRating: Double, courseTotalPar: Int, courseNumberOfHoles: Int, courseTotalDistance: Double, courseIsUploaded: Bool) {
+        let path = NSSearchPathForDirectoriesInDomains(
+            .documentDirectory, .userDomainMask, true
+            ).first!
+        
+        do {
+            let db = try Connection("\(path)/courses.sqlite3")
+            let courses = Table("courses")
+            let id = Expression<Int64>("id")
+            let name = Expression<String>("name")
+            let latitude = Expression<Double>("latitude")
+            let longitude = Expression<Double>("longitude")
+            let rating = Expression<Double>("rating")
+            let totalPar = Expression<Int>("totalPar")
+            let numberOfHoles = Expression<Int>("numberOfHoles")
+            let totalDistance = Expression<Double>("totalDistance")
+            let isUploaded = Expression<Bool>("isUploaded")
+
+            let course = courses.filter(id == Int64(idNum))
+            do {
+                try db.run(course.update(name <- courseName, latitude <- courseLatitude, longitude <- courseLongitude, rating <- courseRating, totalPar <- courseTotalPar, numberOfHoles <- courseNumberOfHoles, totalDistance <- courseTotalDistance, isUploaded <- courseIsUploaded))
+            } catch {
+                print("Function: \(#function), line: \(#line) error \(error)")
+            }
+        } catch {
+            print("Function: \(#function), line: \(#line) error \(error)")
+        }
+    }
+    
+    func updateHole(idNum: Int, holecourse_id: Int, holetee1lat: Double, holetee1long: Double, holetee2lat: Double, holetee2long: Double, holetee3lat: Double, holetee3long: Double, holebasket1lat: Double, holebasket1long: Double, holebasket2lat: Double, holebasket2long: Double, holebasket3lat: Double, holebasket3long: Double, holepar: Int, holetee1picPath: String, holetee2picPath: String, holetee3picPath: String, holebasket1picPath: String, holebasket2picPath: String, holebasket3picPath: String) {
+        let path = NSSearchPathForDirectoriesInDomains(
+            .documentDirectory, .userDomainMask, true
+            ).first!
+        
+        do {
+            let db = try Connection("\(path)/courses.sqlite3")
+            
+            let holes = Table("holes")
+            let id = Expression<Int64>("id")
+            let course_id = Expression<Int64>("course_id")
+            let tee1picPath = Expression<String>("tee1picPath")
+            let tee1lat = Expression<Double>("tee1lat")
+            let tee1long = Expression<Double>("tee1long")
+            let tee2picPath = Expression<String>("tee2picPath")
+            let tee2lat = Expression<Double>("tee2lat")
+            let tee2long = Expression<Double>("tee2long")
+            let tee3picPath = Expression<String>("tee3picPath")
+            let tee3lat = Expression<Double>("tee3lat")
+            let tee3long = Expression<Double>("tee3long")
+            let basket1picPath = Expression<String>("basket1picPath")
+            let basket1lat = Expression<Double>("basket1lat")
+            let basket1long = Expression<Double>("basket1long")
+            let basket2picPath = Expression<String>("basket2picPath")
+            let basket2lat = Expression<Double>("basket2lat")
+            let basket2long = Expression<Double>("basket2long")
+            let basket3picPath = Expression<String>("basket3picPath")
+            let basket3lat = Expression<Double>("basket3lat")
+            let basket3long = Expression<Double>("basket3long")
+            let par = Expression<Int>("par")
+            
+            let hole = holes.filter(id == Int64(idNum))
+            do {
+                try db.run(hole.update(course_id <- Int64(holecourse_id), tee1lat <- holetee1lat, tee1long <- holetee1long, tee2lat <- holetee2lat, tee2long <- holetee2long, tee3lat <- holetee3lat, tee3long <- holetee3long, basket1lat <- holebasket1lat, basket1long <- holebasket1long, basket2lat <- holebasket2lat, basket2long <- holebasket2long, basket3lat <- holebasket3lat, basket3long <- holebasket3long, par <- holepar, tee1picPath <- holetee1picPath, tee2picPath <- holetee2picPath, tee3picPath <- holetee3picPath, basket1picPath <- holebasket1picPath, basket2picPath <- holebasket2picPath, basket3picPath <- holebasket3picPath))
             } catch {
                 print("Function: \(#function), line: \(#line) error \(error)")
             }
@@ -193,9 +262,7 @@ class SQL {
         do {
             let db = try Connection("\(path)/courses.sqlite3")
             
-            let courses = Table("courses")
             let holes = Table("holes")
-            let id = Expression<Int64>("id")
             let course_id = Expression<Int64>("course_id")
             let tee1picPath = Expression<String>("tee1picPath")
             let tee1lat = Expression<Double>("tee1lat")
@@ -218,7 +285,7 @@ class SQL {
             let par = Expression<Int>("par")
             
             do {
-                let _ = try db.run(holes.insert(course_id <- Int64(holecourse_id), tee1lat <- holetee1lat, tee1long <- holetee1long, tee2lat <- holetee2lat, tee2long <- holetee2long, tee3lat <- holetee3lat, tee3long <- holetee3long, basket1lat <- holebasket1lat, basket1long <- holebasket1long, basket2lat <- holebasket2lat, basket2long <- holebasket2long, basket3lat <- holebasket3lat, basket3long <- holebasket3long, par <- holepar, tee1picPath <- holetee1picPath, tee2picPath <- holetee2picPath, tee3picPath <- holetee3picPath, basket1picPath <- holebasket1picPath, basket2picPath <- holebasket2picPath, basket3picPath <- holebasket3picPath))
+                try db.run(holes.insert(course_id <- Int64(holecourse_id), tee1lat <- holetee1lat, tee1long <- holetee1long, tee2lat <- holetee2lat, tee2long <- holetee2long, tee3lat <- holetee3lat, tee3long <- holetee3long, basket1lat <- holebasket1lat, basket1long <- holebasket1long, basket2lat <- holebasket2lat, basket2long <- holebasket2long, basket3lat <- holebasket3lat, basket3long <- holebasket3long, par <- holepar, tee1picPath <- holetee1picPath, tee2picPath <- holetee2picPath, tee3picPath <- holetee3picPath, basket1picPath <- holebasket1picPath, basket2picPath <- holebasket2picPath, basket3picPath <- holebasket3picPath))
             } catch {
                 print("Function: \(#function), line: \(#line) error \(error)")
             }
@@ -236,7 +303,6 @@ class SQL {
         do {
             let db = try Connection("\(path)/courses.sqlite3")
             
-            let courses = Table("courses")
             let holes = Table("holes")
             let id = Expression<Int64>("id")
             let course_id = Expression<Int64>("course_id")
@@ -264,7 +330,7 @@ class SQL {
                 let hs = try db.prepare(holes)
                 
                 for holes in hs {
-                    print("id: \(holes[id]), course_id: \(holes[course_id]), tee1lat: \(holes[tee1lat]), tee1long: \(holes[tee1long]), tee2lat: \(holes[tee2lat]), tee2long: \(holes[tee2long]), tee3lat: \(holes[tee3lat]), tee3long: \(holes[tee3long]), basket1lat: \(holes[basket1lat]), basket1long: \(holes[basket1long]), basket2lat: \(holes[basket2lat]), basket2long: \(holes[basket2long]), basket3lat: \(holes[basket3lat]), basket3long: \(holes[basket3long]), par: \(holes[par]), tee1picPath: \(holes[tee1picPath]), tee2picPath: \(holes[basket2picPath]), tee3picPath: \(holes[tee3picPath]), basket1picPath: \(holes[basket1picPath]), basket2picPath: \(holes[basket2picPath]), basket3picPath: \(holes[basket3picPath])")
+                    print("id: \(holes[id]), course_id: \(holes[course_id]), tee1lat: \(holes[tee1lat]), tee1long: \(holes[tee1long]), tee2lat: \(holes[tee2lat]), tee2long: \(holes[tee2long]), tee3lat: \(holes[tee3lat]), tee3long: \(holes[tee3long]), basket1lat: \(holes[basket1lat]), basket1long: \(holes[basket1long]), basket2lat: \(holes[basket2lat]), basket2long: \(holes[basket2long]), basket3lat: \(holes[basket3lat]), basket3long: \(holes[basket3long]), par: \(holes[par]), tee1picPath: \(holes[tee1picPath]), tee2picPath: \(holes[tee2picPath]), tee3picPath: \(holes[tee3picPath]), basket1picPath: \(holes[basket1picPath]), basket2picPath: \(holes[basket2picPath]), basket3picPath: \(holes[basket3picPath])")
                 }
             } catch {
                 print("Function: \(#function), line: \(#line) error \(error)")

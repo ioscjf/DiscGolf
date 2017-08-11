@@ -35,8 +35,7 @@ class AddCourseViewController: UIViewController {
     }
     
     
-//    let courses = Table("courses")
-//    let id = Expression<Int64>("id")
+
 //    let name = Expression<String>("name")
 //    let latitude = Expression<Double>("latitude")
 //    let longitude = Expression<Double>("longitude")

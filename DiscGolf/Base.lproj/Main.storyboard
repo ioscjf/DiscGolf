@@ -237,7 +237,9 @@
                                 <state key="normal" title="Filter"/>
                                 <connections>
                                     <action selector="filter:" destination="oCZ-cY-keY" eventType="touchUpInside" id="jC4-Wp-8o3"/>
-                                    <segue destination="1l6-px-UlF" kind="showDetail" id="fUZ-ol-nvo"/>
+                                    <segue destination="fH4-YQ-d3Z" kind="popoverPresentation" popoverAnchorView="bUS-iF-UUM" id="cRR-TR-LoP">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="124" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="B9d-vt-SGv">
@@ -847,7 +849,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="fUZ-ol-nvo"/>
         <segue reference="Vi4-lx-FUw"/>
         <segue reference="XyU-1I-HpJ"/>
         <segue reference="LE5-IZ-xJZ"/>
