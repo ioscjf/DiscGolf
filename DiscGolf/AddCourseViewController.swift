@@ -32,7 +32,7 @@ class AddCourseViewController: UIViewController {
                 
                 courseID = cid
                 
-                // navigate via segue!!
+                self.performSegue(withIdentifier: "newCourse", sender: sender)
             } else {
                 alert(title: "Oops!", body: "There was an issue creating the course.  Please try again later.")
             }
@@ -80,6 +80,18 @@ class AddCourseViewController: UIViewController {
             ahvc.course_id = courseID
             
             ahvc.teeOrBasket = "tee"
+            
+            if startingHole.text == "" || startingHole.text == nil {
+                ahvc.startingHole = 1
+            } else {
+                ahvc.startingHole = Int(startingHole.text!)!
+            }
+            
+            if numberOfHoles.text == "" || startingHole.text == nil {
+                ahvc.numberOfHoles = 18
+            } else {
+                ahvc.numberOfHoles = Int(numberOfHoles.text!)!
+            }
         }
     }
 

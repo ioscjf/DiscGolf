@@ -63,7 +63,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="u6G-Zt-UIs" id="sp9-vq-hFm"/>
                                 </connections>
@@ -73,7 +73,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" enablesReturnKeyAutomatically="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="u6G-Zt-UIs" id="76g-s3-4Ck"/>
                                 </connections>
@@ -83,7 +83,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" enablesReturnKeyAutomatically="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="u6G-Zt-UIs" id="FyL-rN-7Og"/>
                                 </connections>
@@ -149,9 +149,9 @@
                                 <rect key="frame" x="16" y="579" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                 <connections>
-                                    <outlet property="delegate" destination="QJD-WQ-4xU" id="cyc-y3-mat"/>
+                                    <outlet property="delegate" destination="QJD-WQ-4xU" id="Gtl-3e-dII"/>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IUx-xu-jOQ">
@@ -310,7 +310,7 @@
                                             <outlet property="numberOfHoles" destination="6LM-BZ-U3M" id="oBB-rs-gye"/>
                                             <outlet property="totalDistance" destination="t7C-7a-N3w" id="dXj-WJ-CvL"/>
                                             <outlet property="totalPar" destination="z57-09-E7d" id="lqu-Or-31q"/>
-                                            <segue destination="1l6-px-UlF" kind="showDetail" id="RTZ-AQ-WHx"/>
+                                            <segue destination="1l6-px-UlF" kind="showDetail" identifier="playThisCourse" id="RTZ-AQ-WHx"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -378,7 +378,7 @@
                                 <rect key="frame" x="16" y="72" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="jxP-OZ-akj" id="dl8-dR-aem"/>
                                 </connections>
@@ -387,7 +387,7 @@
                                 <rect key="frame" x="16" y="110" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" enablesReturnKeyAutomatically="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="jxP-OZ-akj" id="90A-Pu-RXd"/>
                                 </connections>
@@ -440,7 +440,7 @@
                                 <rect key="frame" x="16" y="148" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" enablesReturnKeyAutomatically="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="jxP-OZ-akj" id="egR-dj-J9g"/>
                                 </connections>
@@ -958,7 +958,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="f5k-kB-HQT"/>
+        <segue reference="Vi4-lx-FUw"/>
         <segue reference="XyU-1I-HpJ"/>
         <segue reference="LE5-IZ-xJZ"/>
     </inferredMetricsTieBreakers>

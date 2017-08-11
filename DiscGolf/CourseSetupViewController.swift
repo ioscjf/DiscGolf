@@ -33,6 +33,7 @@ class CourseSetupViewController: UIViewController {
     var beaconManager = BCBeaconManager()
     var selectedDisc: BCBeacon? = nil
     var myDiscs: [BCBeacon] = []
+    var course_id = 1
 
     // MARK: - Overrides
 

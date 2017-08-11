@@ -21,7 +21,7 @@ class CourseTableViewCell: UITableViewCell {
     
     // MARK: - Configuration
     
-    func configure(_ course: Dictionary<String,AnyObject>) {
+    func configure(_ course: Dictionary<String,AnyObject>) { // these need updated!!
         if let n = course["name"] as? String {
             courseName.text = n
         }

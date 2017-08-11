@@ -142,13 +142,14 @@ class AddHoleViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     // MARK: - Variables
     
+    var activeTextField = UITextField()
     let imagePicker = UIImagePickerController()
     let locationManager = CLLocationManager()
     var currentLongitude = 0.0
     var currentLatitude = 0.0
     var holeNumber = 1
     var teeOrBasket = "tee"
-    let pickerData = ["1/A","2/B","3/C"]
+    let pickerData = ["A","B","C"]
     var selectedPadNumberLetter = 1
     var teeNumberForDistance = 1 // use the last selected pad number.  This variable should be passed to this view controller
     
@@ -157,6 +158,11 @@ class AddHoleViewController: UIViewController, UIImagePickerControllerDelegate, 
 
     // course info
     var course_id = 0
+    
+    // game info
+    var numberOfHoles = 18
+    var startingHole = 1
+    var currentHoleNum = 0
     
     // MARK: - Overrides
 
@@ -177,6 +183,9 @@ class AddHoleViewController: UIViewController, UIImagePickerControllerDelegate, 
         } else { // must be a basket
             instructions.text = "While standing as close as possible to the basket, take a picture of it.  Include the number if possible"
         }
+        
+        par.enablesReturnKeyAutomatically = true // this should have been set in the storyboard but had issues with it
+        par.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -198,6 +207,26 @@ class AddHoleViewController: UIViewController, UIImagePickerControllerDelegate, 
             dgvc.course_id = course_id
             dgvc.hole_id = hole_id
             
+            if currentHoleNum == 0 {
+                dgvc.holeNum = startingHole
+            } else {
+                dgvc.holeNum = currentHoleNum + 1
+                
+                // wrap around to 1 after 18?!!
+                // keep track of this from an array instead of an int so users
+                // can add as many holes as they want and start at the hole they
+                // select in the table view (to be added)
+            }
+            
+            dgvc.numberOfHoles = numberOfHoles
+            
+            if teeOrBasket == "tee" {
+                dgvc.teeNum = selectedPadNumberLetter
+                dgvc.teeOrBasket = "basket"
+            } else { // must be a basket
+                // can't set dgvc.basketNum because it is not known until after the hole is complete
+                dgvc.teeOrBasket = "tee"
+            }
         }
     }
     
@@ -240,6 +269,29 @@ class AddHoleViewController: UIViewController, UIImagePickerControllerDelegate, 
         currentLongitude = locValue.longitude
     }
 }
+
+// MARK: - Text Field Extension
+
+extension AddHoleViewController: UITextFieldDelegate {
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        self.activeTextField = textField
+        return true
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        self.activeTextField = textField
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.activeTextField = textField
+        textField.resignFirstResponder()
+        return true
+    }
+}
+
+// MARK: - Picker View Extension
 
 extension AddHoleViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

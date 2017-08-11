@@ -43,6 +43,15 @@ class DiscGolfViewController: UIViewController {
     var activeTextField = UITextField()
     
     var isAnewCourse = false
+    
+    var holeNum = 0
+    var course_id = 0
+    var hole_id = 0
+    var teeNum = 1
+    var holePar = 3
+    var teeOrBasket = "tee"
+    
+    // MARK: - Overrides
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +62,11 @@ class DiscGolfViewController: UIViewController {
         
         beaconManager = BCBeaconManager(delegate: self, queue: nil)
         BCEventManager.shared().delegate = self
+        
+        holeNumber.text = "Hole \(holeNum)  Tee \(teeNum)" // include basket if course is not new!!
+        par.text = "Par: \(holePar)"
+        holeDistance.text = "Distance: unknown" // set this if course is not new!!
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -70,7 +84,7 @@ class DiscGolfViewController: UIViewController {
         if segue.identifier == "newHole" {
             let ahvc = segue.destination as! AddHoleViewController
 
-            if "tee" {// fix this!!
+            if teeOrBasket == "tee" {// fix this!!
                 
             } else { // must be a basket
             }
@@ -137,6 +151,8 @@ extension DiscGolfViewController: CLLocationManagerDelegate, MKMapViewDelegate {
 }
 
 // MARK: - iBeacon Extension
+
+// use that one function (like for battery level) to show the distance of the drive!!
 
 extension DiscGolfViewController: BCBeaconManagerDelegate, BCEventManagerDelegate {
     private func beaconManager(beaconManager: BCBeaconManager!, didEnterBeacons beacons: [BCBeacon]!) {

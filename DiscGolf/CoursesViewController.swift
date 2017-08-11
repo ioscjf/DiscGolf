@@ -22,6 +22,7 @@ class CoursesViewController: UIViewController {
     
     let myCourses: [Dictionary<String, AnyObject>]  = [[:]] // preload these into sqlite
     var selectedCourse: Dictionary<String, AnyObject> = [:]
+    var selectedCourseID = 1 // this needs to be set by didSelectRowAtIndexPath!!
 
     // MARK: - Overrides
     
@@ -37,17 +38,20 @@ class CoursesViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "playThisCourse" {
+            let destinationNavigationController = segue.destination as! UINavigationController
+            let csvc = destinationNavigationController.topViewController as! CourseSetupViewController
+            
+            csvc.course_id = selectedCourseID
+        }
     }
-    */
-
 }
 
 // MARK: - TableView Extension
@@ -69,5 +73,7 @@ extension CoursesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedCourse = myCourses[indexPath.row]
+        self.performSegue(withIdentifier: "playThisCourse", sender: indexPath);
+
     }
 }
