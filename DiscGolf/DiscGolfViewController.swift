@@ -19,6 +19,8 @@ class DiscGolfViewController: UIViewController {
     @IBOutlet weak var distance: UILabel!
     @IBOutlet weak var map: MKMapView!
     @IBOutlet weak var players: UITableView!
+    @IBOutlet weak var holeDistance: UILabel!
+    @IBOutlet weak var driveDistance: UILabel!
     
     @IBAction func nextHole(_ sender: UIButton) {
         if isAnewCourse {
@@ -38,6 +40,7 @@ class DiscGolfViewController: UIViewController {
     var numberOfHoles: Int = 18
     var myBeacon: BCBeacon? = nil
     var locationManager = CLLocationManager()
+    var activeTextField = UITextField()
     
     var isAnewCourse = false
 
@@ -67,6 +70,10 @@ class DiscGolfViewController: UIViewController {
         if segue.identifier == "newHole" {
             let ahvc = segue.destination as! AddHoleViewController
 
+            if "tee" {// fix this!!
+                
+            } else { // must be a basket
+            }
             // fix!!
 //            ahvc.teeOrBasket = "tee" // dynamic
 //            ahvc.holeNumber = Int(holeNumber.text)
@@ -74,7 +81,32 @@ class DiscGolfViewController: UIViewController {
 //            psvc.nameLast = nameLast
 //            psvc.team = team
 //            psvc.opponent = opponent
+        } else if segue.identifier == "switchPadBasket" {
+            // pass the current pad/basket
+        } else if segue.identifier == "switchBeacon" {
+            // pass the current beacon, have it show up as selected.  There should always be a selected beacon
         }
+    }
+}
+
+// MARK: - Text Field Extension
+
+extension DiscGolfViewController: UITextFieldDelegate {
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        self.activeTextField = textField
+        return true
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        self.activeTextField = textField
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.activeTextField = textField
+        textField.resignFirstResponder()
+        return true
     }
 }
 

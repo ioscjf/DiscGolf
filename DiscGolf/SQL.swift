@@ -10,13 +10,10 @@ import Foundation
 import SQLite
 
 class SQL {
+    
+    // MARK: - Courses
+    
     func getCourses() {
-        
-        // add select course id!!
-        // add scores
-        // add players
-        // add throw (distance)
-        
         let path = NSSearchPathForDirectoriesInDomains(
             .documentDirectory, .userDomainMask, true
             ).first!
@@ -99,7 +96,7 @@ class SQL {
             let numberOfHoles = Expression<Int>("numberOfHoles")
             let totalDistance = Expression<Double>("totalDistance")
             let isUploaded = Expression<Bool>("isUploaded")
-
+            
             do {
                 let _ = try db.run(courses.create { t in
                     t.column(id, primaryKey: .autoincrement)
@@ -175,6 +172,154 @@ class SQL {
         
         return dict
     }
+    
+    func dropCourseTable() {
+        let path = NSSearchPathForDirectoriesInDomains(
+            .documentDirectory, .userDomainMask, true
+            ).first!
+        
+        do {
+            let db = try Connection("\(path)/courses.sqlite3")
+            let courses = Table("courses")
+            
+            do {
+                try db.run(courses.drop())
+                
+            } catch {
+                print("Funciton: \(#function), line: \(#line) error \(error)")
+            }
+        } catch {
+            print("Funciton: \(#function), line: \(#line) error \(error)")
+        }
+    }
+    
+    // MARK: - Scores
+    // missing update, get all scores, drop scores table
+    
+    func addScores(somegame_id: Int, someplayerName: String, sometotalScore: Int, somebestDrive: Double) -> Int? {
+        let path = NSSearchPathForDirectoriesInDomains(
+            .documentDirectory, .userDomainMask, true
+            ).first!
+        
+        do {
+            let db = try Connection("\(path)/courses.sqlite3")
+            
+            let scores = Table("scores")
+            let game_id = Expression<Int>("game_id")
+            let playerName = Expression<String>("playerName")
+            let totalScore = Expression<Int>("totalScore")
+            let bestDrive = Expression<Double>("bestDrive")
+            
+            do {
+                let id = try db.run(scores.insert(game_id <- somegame_id, playerName <- someplayerName, totalScore <- sometotalScore, bestDrive <- somebestDrive))
+                
+                return Int(id)
+            } catch {
+                print("Function: \(#function), line: \(#line) error \(error)")
+            }
+        } catch {
+            print("Function: \(#function), line: \(#line) error \(error)")
+        }
+        return nil
+    }
+    
+    func createScoresTable() {
+        
+        let path = NSSearchPathForDirectoriesInDomains(
+            .documentDirectory, .userDomainMask, true
+            ).first!
+        
+        do {
+            let db = try Connection("\(path)/courses.sqlite3")
+            
+            let games = Table("games")
+            let scores = Table("scores")
+            let id = Expression<Int>("id")
+            let playerName = Expression<String>("name")
+            let game_id = Expression<Int>("game_id")
+            let totalScore = Expression<Int>("totalScore") // in a future update, keep track of the score of each hole!!
+            let bestDrive = Expression<Double>("bestDrive")
+            
+            do {
+                let _ = try db.run(scores.create { t in
+                    t.column(id, primaryKey: .autoincrement)
+                    t.column(game_id)
+                    t.column(playerName)
+                    t.column(totalScore)
+                    t.column(bestDrive)
+                    t.foreignKey(game_id, references: games, id, delete: .setNull)
+                })
+            } catch {
+                print("Function: \(#function), line: \(#line) error \(error)")
+            }
+        } catch {
+            print("Function: \(#function), line: \(#line) error \(error)")
+        }
+    }
+    
+    // MARK: - Games
+    // missing update, get all games, drop games table
+    
+    func createGameTable() {
+        let path = NSSearchPathForDirectoriesInDomains(
+            .documentDirectory, .userDomainMask, true
+            ).first!
+        
+        do {
+            let db = try Connection("\(path)/courses.sqlite3")
+            
+            let games = Table("games")
+            let courses = Table("courses")
+            let scores = Table("scores")
+            let id = Expression<Int>("id")
+            let player_id = Expression<Int>("player_id")
+            let course_id = Expression<Int>("course_id")
+            let gameNum = Expression<Int>("gameNum")
+            
+            do {
+                let _ = try db.run(games.create { t in
+                    t.column(id, primaryKey: .autoincrement)
+                    t.column(course_id)
+                    t.column(player_id)
+                    t.column(gameNum)
+                    t.foreignKey(course_id, references: courses, id, delete: .setNull)
+                    t.foreignKey(player_id, references: scores, id, delete: .setNull)
+                })
+            } catch {
+                print("Function: \(#function), line: \(#line) error \(error)")
+            }
+        } catch {
+            print("Function: \(#function), line: \(#line) error \(error)")
+        }
+    }
+    
+    func addGames(somegameNum: Int, someplayer_id: Int, somecourse_id: Int) -> Int? {
+        let path = NSSearchPathForDirectoriesInDomains(
+            .documentDirectory, .userDomainMask, true
+            ).first!
+        
+        do {
+            let db = try Connection("\(path)/courses.sqlite3")
+            
+            let games = Table("games")
+            let player_id = Expression<Int>("player_id")
+            let course_id = Expression<Int>("course_id")
+            let gameNum = Expression<Int>("gameNum")
+            
+            do {
+                let id = try db.run(games.insert(player_id <- someplayer_id, course_id <- somecourse_id, gameNum <- somegameNum))
+                
+                return Int(id)
+            } catch {
+                print("Function: \(#function), line: \(#line) error \(error)")
+            }
+        } catch {
+            print("Function: \(#function), line: \(#line) error \(error)")
+        }
+        return nil
+    }
+    
+    // MARK: - Holes
     
     func updateHole(idNum: Int, holecourse_id: Int, holetee1lat: Double, holetee1long: Double, holetee2lat: Double, holetee2long: Double, holetee3lat: Double, holetee3long: Double, holebasket1lat: Double, holebasket1long: Double, holebasket2lat: Double, holebasket2long: Double, holebasket3lat: Double, holebasket3long: Double, holepar: Int, holetee1picPath: String, holetee2picPath: String, holetee3picPath: String, holebasket1picPath: String, holebasket2picPath: String, holebasket3picPath: String) {
         let path = NSSearchPathForDirectoriesInDomains(
@@ -421,26 +566,6 @@ class SQL {
             }
         } catch {
             print("Function: \(#function), line: \(#line) error \(error)")
-        }
-    }
-    
-    func dropCourseTable() {
-        let path = NSSearchPathForDirectoriesInDomains(
-            .documentDirectory, .userDomainMask, true
-            ).first!
-        
-        do {
-            let db = try Connection("\(path)/courses.sqlite3")
-            let courses = Table("courses")
-            
-            do {
-                try db.run(courses.drop())
-                
-            } catch {
-                print("Funciton: \(#function), line: \(#line) error \(error)")
-            }
-        } catch {
-            print("Funciton: \(#function), line: \(#line) error \(error)")
         }
     }
     

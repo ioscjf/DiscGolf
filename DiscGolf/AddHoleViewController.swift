@@ -50,6 +50,9 @@ class AddHoleViewController: UIViewController, UIImagePickerControllerDelegate, 
         var b2picPath = ""
         var b3picPath = ""
         
+        let uuid = NSUUID().uuidString
+        let imagePath = "\(course_id)\(uuid).jpg" // can't access the hole_id (hasn't always been created).  Using a uuid instead so each path is unique
+        
         let courseInfo = SQL().getCourse(courseID: course_id)
         
         if teeOrBasket == "tee" {
@@ -132,6 +135,8 @@ class AddHoleViewController: UIViewController, UIImagePickerControllerDelegate, 
             SQL().updateCourse(idNum: course_id, courseName: courseInfo["name"] as! String, courseLatitude: courseInfo["latitude"] as! Double, courseLongitude: courseInfo["longitude"] as! Double, courseRating: courseInfo["rating"] as! Double, courseTotalPar: courseInfo["totalPar"] as! Int, courseNumberOfHoles: courseInfo["numberOfHoles"] as! Int, courseTotalDistance: distance, courseIsUploaded: courseInfo["isUploaded"] as! Bool)
         }
         
+        saveImageDocumentDirectory(imageName: imagePath)
+        
         self.performSegue(withIdentifier: "backToPlaying", sender: sender)
     }
     
@@ -146,7 +151,6 @@ class AddHoleViewController: UIViewController, UIImagePickerControllerDelegate, 
     let pickerData = ["1/A","2/B","3/C"]
     var selectedPadNumberLetter = 1
     var teeNumberForDistance = 1 // use the last selected pad number.  This variable should be passed to this view controller
-    var imagePath = ""
     
     // hole info
     var hole_id = 0
@@ -211,7 +215,7 @@ class AddHoleViewController: UIViewController, UIImagePickerControllerDelegate, 
         let image = selectedImage.image
         
         if let i = image { // compress the image!!
-            print(paths) // add this to the database!!
+            // print(paths)
             let imageData = UIImageJPEGRepresentation(i, 0.5)
             fileManager.createFile(atPath: paths as String, contents: imageData, attributes: nil)
         } else {
