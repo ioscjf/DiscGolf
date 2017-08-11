@@ -30,9 +30,53 @@ class AddHoleViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     @IBAction func submit(_ sender: UIButton) {
+        var h1lat = 0.0
+        var h1long = 0.0
+        var h2lat = 0.0
+        var h2long = 0.0
+        var h3lat = 0.0
+        var h3long = 0.0
+        var b1lat = 0.0
+        var b1long = 0.0
+        var b2lat = 0.0
+        var b2long = 0.0
+        var b3lat = 0.0
+        var b3long = 0.0
         
-        //find a more clever way to do this!!
-//        SQL().addHole(holecourse_id: courseID, holetee1lat: <#T##Double#>, holetee1long: <#T##Double#>, holetee2lat: <#T##Double#>, holetee2long: <#T##Double#>, holetee3lat: <#T##Double#>, holetee3long: <#T##Double#>, holebasket1lat: <#T##Double#>, holebasket1long: <#T##Double#>, holebasket2lat: <#T##Double#>, holebasket2long: <#T##Double#>, holebasket3lat: <#T##Double#>, holebasket3long: <#T##Double#>, holepar: <#T##Int#>, holetee1picPath: <#T##String#>, holetee2picPath: <#T##String#>, holetee3picPath: <#T##String#>, holebasket1picPath: <#T##String#>, holebasket2picPath: <#T##String#>, holebasket3picPath: <#T##String#>)
+        if teeOrBasket == "tee" {
+            switch selectedPadNumberLetter {
+            case 1:
+                h1lat = currentLatitude
+                h1long = currentLongitude
+            case 2:
+                h2lat = currentLatitude
+                h2long = currentLongitude
+            case 3:
+                h3lat = currentLatitude
+                h3long = currentLongitude
+            default:
+                print("ERROR: TOO MANY TEE PADS")
+            }
+        } else { // should be a basket
+            switch selectedPadNumberLetter {
+            case 1:
+                b1lat = currentLatitude
+                b1long = currentLongitude
+            case 2:
+                b2lat = currentLatitude
+                b2long = currentLongitude
+            case 3:
+                b3lat = currentLatitude
+                b3long = currentLongitude
+            default:
+                print("ERROR: TOO MANY BASKETS")
+            }
+        }
+        if let hid = SQL().addHole(holecourse_id: course_id, holetee1lat: h1lat, holetee1long: h1long, holetee2lat: h2lat, holetee2long: h2long, holetee3lat: h3lat, holetee3long: h3long, holebasket1lat: b1lat, holebasket1long: b1long, holebasket2lat: b2lat, holebasket2long: b2long, holebasket3lat: b3lat, holebasket3long: b3long, holepar: <#T##Int#>, holetee1picPath: <#T##String#>, holetee2picPath: <#T##String#>, holetee3picPath: <#T##String#>, holebasket1picPath: <#T##String#>, holebasket2picPath: <#T##String#>, holebasket3picPath: <#T##String#>) {
+            
+        } else {
+            alert(title: "Oops!", body: "There was an error adding the hole.  Please try again later.")
+        }
         
         // then navigate to the next screen!!
     }
@@ -46,7 +90,18 @@ class AddHoleViewController: UIViewController, UIImagePickerControllerDelegate, 
     var holeNumber = 1
     var teeOrBasket = "tee"
     let pickerData = ["1/A","2/B","3/C"]
-    var courseID = 1
+    var selectedPadNumberLetter = 1
+
+    // course info
+    var course_id = 0
+    var course_name = ""
+    var course_lat = 0.0
+    var course_long = 0.0
+    var course_distance = 0.0
+    var course_par = 0
+    var course_holeCount = 0
+    var course_rating = 0.0
+    var course_uploaded = false
     
     // MARK: - Overrides
 

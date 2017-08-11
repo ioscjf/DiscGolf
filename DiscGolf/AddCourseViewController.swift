@@ -27,10 +27,15 @@ class AddCourseViewController: UIViewController {
         if courseName.text == "" {
             alert(title: "Oops!", body: "Every course must have a name")
         } else {
-            SQL().addCourses(courseName: courseName.text!, courseLatitude: 0.0, courseLongitude: 0.0, courseTotalDistance: 0.0, courseTotalPar: 54, courseNumberOfHoles: 18, courseRating: 0.0, courseIsUploaded: false)
-            
-            // navigate via segue!!
-            // pass course name in segue for retrieval from database to update lat/long/distance/etc
+            name = courseName.text!
+            if let cid = SQL().addCourses(courseName: name, courseLatitude: lat, courseLongitude: long, courseTotalDistance: distance, courseTotalPar: totalpar, courseNumberOfHoles: holeCount, courseRating: rating, courseIsUploaded: uploaded) {
+                
+                courseID = cid
+                
+                // navigate via segue!!
+            } else {
+                alert(title: "Oops!", body: "There was an issue creating the course.  Please try again later.")
+            }
         }
     }
     
@@ -48,6 +53,18 @@ class AddCourseViewController: UIViewController {
     // MARK: - Variables
     
     var activeTextField = UITextField()
+    
+    // course info to pass to next view controller
+    var courseID = 0
+    var name = ""
+    var lat = 0.0
+    var long = 0.0
+    var distance = 0.0
+    var totalpar = 54
+    var holeCount = 18
+    var rating = 0.0
+    var uploaded = false
+    
     
     // MARK: - Overrides
 
@@ -71,13 +88,17 @@ class AddCourseViewController: UIViewController {
         
         if segue.identifier == "newCourse" {
             let ahvc = segue.destination as! AddHoleViewController
-            // fix!!
-//            ahvc.teeOrBasket = "tee" // dynamic
-//            ahvc.holeNumber = Int(holeNumber.text)
-//            psvc.nameFirst = nameFirst
-//            psvc.nameLast = nameLast
-//            psvc.team = team
-//            psvc.opponent = opponent
+            ahvc.course_id = courseID
+            ahvc.course_name = name
+            ahvc.course_lat = lat
+            ahvc.course_long = long
+            ahvc.course_distance = distance
+            ahvc.course_par = totalpar
+            ahvc.course_holeCount = holeCount
+            ahvc.course_rating = rating
+            ahvc.course_uploaded = uploaded
+            
+            ahvc.teeOrBasket = "tee"
         }
     }
 
