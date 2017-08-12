@@ -237,9 +237,7 @@
                                 <state key="normal" title="Filter"/>
                                 <connections>
                                     <action selector="filter:" destination="oCZ-cY-keY" eventType="touchUpInside" id="jC4-Wp-8o3"/>
-                                    <segue destination="fH4-YQ-d3Z" kind="popoverPresentation" popoverAnchorView="bUS-iF-UUM" id="cRR-TR-LoP">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
+                                    <segue destination="1l6-px-UlF" kind="showDetail" id="swJ-ew-YOr"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="124" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="B9d-vt-SGv">
@@ -609,7 +607,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" showsBuildings="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6WK-oq-nHL">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="satellite" showsUserLocation="YES" showsBuildings="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6WK-oq-nHL">
                                 <rect key="frame" x="16" y="203" width="343" height="227"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="227" id="AMj-AI-7Na"/>
@@ -958,7 +956,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Vi4-lx-FUw"/>
+        <segue reference="swJ-ew-YOr"/>
+        <segue reference="f5k-kB-HQT"/>
         <segue reference="XyU-1I-HpJ"/>
         <segue reference="LE5-IZ-xJZ"/>
     </inferredMetricsTieBreakers>

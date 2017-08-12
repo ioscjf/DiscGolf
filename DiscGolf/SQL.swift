@@ -98,7 +98,7 @@ class SQL {
             let isUploaded = Expression<Bool>("isUploaded")
             
             do {
-                let _ = try db.run(courses.create { t in
+                let _ = try db.run(courses.create(ifNotExists: true) { t in
                     t.column(id, primaryKey: .autoincrement)
                     t.column(name)
                     t.column(latitude)
@@ -241,7 +241,7 @@ class SQL {
             let bestDrive = Expression<Double>("bestDrive")
             
             do {
-                let _ = try db.run(scores.create { t in
+                let _ = try db.run(scores.create(ifNotExists: true) { t in
                     t.column(id, primaryKey: .autoincrement)
                     t.column(game_id)
                     t.column(playerName)
@@ -277,7 +277,7 @@ class SQL {
             let gameNum = Expression<Int>("gameNum")
             
             do {
-                let _ = try db.run(games.create { t in
+                let _ = try db.run(games.create(ifNotExists: true) { t in
                     t.column(id, primaryKey: .autoincrement)
                     t.column(course_id)
                     t.column(player_id)
@@ -397,7 +397,7 @@ class SQL {
             let par = Expression<Int>("par")
             
             do {
-                let _ = try db.run(holes.create { t in
+                let _ = try db.run(holes.create(ifNotExists: true) { t in
                     t.column(id, primaryKey: .autoincrement)
                     t.column(course_id)
                     t.column(tee1picPath)

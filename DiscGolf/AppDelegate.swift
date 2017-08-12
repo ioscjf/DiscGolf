@@ -18,6 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
 
         initBlueCatsSDK(appToken: "d096bcb6-f99c-4485-85fa-168656cb72fc")
+        
+        SQL().createCourseTable()
+        SQL().createHoleTable()
+        SQL().createGameTable()
+        SQL().createScoresTable()
+        
         return true
     }
 
@@ -90,7 +96,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    // MARK: - BCSDK
+    // MARK: - BlueCats SDK
     func initBlueCatsSDK(appToken: String) {
         //start the sdk using BCAppToken from our constants file AppConstants.h
         BlueCatsSDK.startPurring(withAppToken: appToken, completion: {(_ status: BCStatus) -> Void in

@@ -17,7 +17,7 @@ class HistoryViewController: UIViewController {
         
 //        SQL().dropCourseTable()
 //        SQL().dropHoleTable()
-//        
+//
 //
 //        // Testing SQLite!!
 //        SQL().createCourseTable()
