@@ -157,7 +157,7 @@ class SQL {
         let numberOfHoles = Expression<Int>("numberOfHoles")
         let totalDistance = Expression<Double>("totalDistance")
         let isUploaded = Expression<Bool>("isUploaded")
-        let query = courses.select(name, latitude, longitude, rating, totalPar, numberOfHoles, totalDistance, isUploaded)           // SELECT * FROM "courses"
+        let query = courses.select(name, latitude, longitude, rating, totalPar, numberOfHoles, totalDistance, isUploaded)                               // SELECT * FROM "courses"
             .filter(id == courseID)                   // WHERE courses.id == "courseID"
         
         var dict = [String: AnyObject]()

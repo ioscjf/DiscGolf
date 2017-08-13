@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Gimbal
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
 
         initBlueCatsSDK(appToken: "d096bcb6-f99c-4485-85fa-168656cb72fc")
+        
+        Gimbal.setAPIKey("d9a94eaa-b6bf-47fb-9271-3c0c214fec77", options: nil)
+
         
         SQL().createCourseTable()
         SQL().createHoleTable()

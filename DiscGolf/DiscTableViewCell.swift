@@ -17,9 +17,9 @@ class DiscTableViewCell: UITableViewCell {
     
     // MARK: - Configuration
     
-    func configure(_ beacon: BCBeacon) {
+    func configure(_ name: String, beacon: CLBeacon) {
         
-        beaconName.text = beacon.name
-        serialNumber.text = beacon.serialNumber
+        beaconName.text = name
+        serialNumber.text = "\(beacon.accuracy) (m)"
     }
 }

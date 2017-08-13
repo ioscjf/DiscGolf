@@ -33,14 +33,16 @@ class DiscGolfViewController: UIViewController {
     
     // MARK: - Variables
     
-    var beaconManager = BCBeaconManager()
+//    var beaconManager = BCBeaconManager()
     let regionRadius: CLLocationDistance = 1000
     var myPlayers: [String] = []
     var startingHole: Int = 1
     var numberOfHoles: Int = 18
-    var myBeacon: BCBeacon? = nil
+//    var myBeacon: BCBeacon? = nil
     var locationManager = CLLocationManager()
     var activeTextField = UITextField()
+    var myBeacon: CLBeacon? = nil
+    var myBeaconName = ""
     
     var isAnewCourse = false
     
@@ -60,13 +62,16 @@ class DiscGolfViewController: UIViewController {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         
-        beaconManager = BCBeaconManager(delegate: self, queue: nil)
-        BCEventManager.shared().delegate = self
+//        beaconManager = BCBeaconManager(delegate: self, queue: nil)
+//        BCEventManager.shared().delegate = self
         
         holeNumber.text = "Hole \(holeNum)  Tee \(teeNum)" // include basket if course is not new!!
         par.text = "Par: \(holePar)"
         holeDistance.text = "Distance: unknown" // set this if course is not new!!
         
+        locationManager.delegate = self
+        
+        beaconName.text = myBeaconName
     }
 
     override func didReceiveMemoryWarning() {
@@ -148,36 +153,71 @@ extension DiscGolfViewController: CLLocationManagerDelegate, MKMapViewDelegate {
         let region: MKCoordinateRegion = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 200, 200)
         self.map?.setRegion((self.map?.regionThatFits(region))!, animated: true)
     }
+    
+    // core location
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedAlways || status == .authorizedWhenInUse {
+            if CLLocationManager.isMonitoringAvailable(for: CLBeaconRegion.self) {
+                if CLLocationManager.isRangingAvailable() {
+                    startScanning()
+                }
+            }
+        }
+    }
+    
+    func startScanning() {
+        let uuid = UUID(uuidString: "1C0E1A1D-D3BC-47B9-A815-DDFACCFE36F6")!
+        let beaconRegion = CLBeaconRegion(proximityUUID: uuid, major: 0, minor: 0, identifier: "MyBeacon")
+        
+        locationManager.startMonitoring(for: beaconRegion)
+        locationManager.startRangingBeacons(in: beaconRegion)
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
+        if beacons.count > 0 {
+            for beacon in beacons {
+                if "\(beacon.major).\(beacon.minor)" == myBeaconName {
+                    if beacon.accuracy == -1 {
+                        distance.text = "Out of Range"
+                    } else {
+                        distance.text = "\(String(format:"%.2f", beacon.accuracy)) (m)"
+                    }
+                }
+            }
+        } else {
+            // alert about buying beacons!!
+        }
+    }
 }
 
 // MARK: - iBeacon Extension
 
 // use that one function (like for battery level) to show the distance of the drive!!
 
-extension DiscGolfViewController: BCBeaconManagerDelegate, BCEventManagerDelegate {
-    private func beaconManager(beaconManager: BCBeaconManager!, didEnterBeacons beacons: [BCBeacon]!) {
-        print("didEnterBeacons: \(beacons.count)")
-    }
-    
-    func beaconManager(_ beaconManager: BCBeaconManager!, didExitBeacons beacons: [BCBeacon]!) {
-        print("didExitBeacons: \(beacons.count)")
-    }
-    
-    func beaconManager(_ monitor: BCBeaconManager, didRangeBeacons beacons: [BCBeacon]) {
-        if beacons.count > 0 {
-            for currentBeacon: BCBeacon in beacons {
-                if myBeacon == currentBeacon {
-                    if currentBeacon.accuracy == -1 {
-                        distance.text = "Unknown (m)"
-                    } else {
-                        
-                        distance.text = "\(String(format:"%.2f", currentBeacon.accuracy)) (m)"
-                    }
-                }
-            }
-        }
-    }
-}
+//extension DiscGolfViewController: BCBeaconManagerDelegate, BCEventManagerDelegate {
+//    private func beaconManager(beaconManager: BCBeaconManager!, didEnterBeacons beacons: [BCBeacon]!) {
+//        print("didEnterBeacons: \(beacons.count)")
+//    }
+//    
+//    func beaconManager(_ beaconManager: BCBeaconManager!, didExitBeacons beacons: [BCBeacon]!) {
+//        print("didExitBeacons: \(beacons.count)")
+//    }
+//    
+//    func beaconManager(_ monitor: BCBeaconManager, didRangeBeacons beacons: [BCBeacon]) {
+//        if beacons.count > 0 {
+//            for currentBeacon: BCBeacon in beacons {
+//                if myBeacon == currentBeacon {
+//                    if currentBeacon.accuracy == -1 {
+//                        distance.text = "Unknown (m)"
+//                    } else {
+//                        
+//                        distance.text = "\(String(format:"%.2f", currentBeacon.accuracy)) (m)"
+//                    }
+//                }
+//            }
+//        }
+//    }
+//}
 
 // MARK: - TableView Extension
 

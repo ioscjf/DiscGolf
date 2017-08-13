@@ -24,6 +24,8 @@
 	<string>DiscFinder uses Bluetooth proximity to help you find your discs</string>
 	<key>NSCameraUsageDescription</key>
 	<string>DiscFinder uses the camera to add pictures to new courses</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>DiscFinder uses Bluetooth and your location to help you find your discs</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>DiscFinder uses Bluetooth and your location to help you find your discs</string>
 	<key>UIBackgroundModes</key>
@@ -42,8 +44,7 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>

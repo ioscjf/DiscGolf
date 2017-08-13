@@ -42,7 +42,7 @@ class AddHoleViewController: UIViewController, UIImagePickerControllerDelegate, 
         var b2long = 0.0
         var b3lat = 0.0
         var b3long = 0.0
-        var holePar = 0
+        var holePar = 3 // by default
         var h1picPath = ""
         var h2picPath = ""
         var h3picPath = ""
@@ -86,7 +86,7 @@ class AddHoleViewController: UIViewController, UIImagePickerControllerDelegate, 
             
             if holeNumber == 1 {
                 let newpar = (courseInfo["totalPar"] as! Int) + holePar
-                SQL().updateCourse(idNum: course_id, courseName: courseInfo["name"] as! String, courseLatitude: currentLatitude, courseLongitude: currentLongitude, courseRating: courseInfo["rating"] as! Double, courseTotalPar: newpar, courseNumberOfHoles: courseInfo["numberOfHoles"] as! Int, courseTotalDistance: courseInfo["totalDistance"] as! Double, courseIsUploaded: courseInfo["isUploaded"] as! Bool)
+                SQL().updateCourse(idNum: course_id, courseName: courseInfo["name"] as! String, courseLatitude: currentLatitude, courseLongitude: currentLongitude, courseRating: courseInfo["rating"] as! Double, courseTotalPar: Int(newpar), courseNumberOfHoles: courseInfo["numberOfHoles"] as! Int, courseTotalDistance: courseInfo["totalDistance"] as! Double, courseIsUploaded: courseInfo["isUploaded"] as! Bool)
             } else {
                 let newpar = (courseInfo["totalPar"] as! Int) + holePar
                 SQL().updateCourse(idNum: course_id, courseName: courseInfo["name"] as! String, courseLatitude: courseInfo["latitude"] as! Double, courseLongitude: courseInfo["longitude"] as! Double, courseRating: courseInfo["rating"] as! Double, courseTotalPar: newpar, courseNumberOfHoles: courseInfo["numberOfHoles"] as! Int, courseTotalDistance: courseInfo["totalDistance"] as! Double, courseIsUploaded: courseInfo["isUploaded"] as! Bool)
