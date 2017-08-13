@@ -124,10 +124,11 @@ class CourseSetupViewController: UIViewController, GMBLPlaceManagerDelegate, GMB
         if beacons.count > 0 {
             if beacons.count > 0 {
                 for beacon in beacons {
-//                    if !myDiscs.keys.contains(Int(beacon.minor)) {
                         myDiscs["\(beacon.major).\(beacon.minor)"] = beacon
-                        self.discs.reloadData()
-//                    }
+                    
+                    let selectedRow = discs.indexPathForSelectedRow
+                    self.discs.reloadData()
+                    discs.selectRow(at: selectedRow, animated: true, scrollPosition: .none)
                 }
             }
         } else {
