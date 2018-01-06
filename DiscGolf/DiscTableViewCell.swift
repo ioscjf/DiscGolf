@@ -20,6 +20,6 @@ class DiscTableViewCell: UITableViewCell {
     func configure(_ name: String, beacon: CLBeacon) {
         
         beaconName.text = name
-        serialNumber.text = "\(beacon.accuracy) (m)"
+        serialNumber.text = "\(String(format:"%.2f", beacon.accuracy)) (m)"
     }
 }

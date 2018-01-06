@@ -43,6 +43,7 @@ class DiscGolfViewController: UIViewController {
     var activeTextField = UITextField()
     var myBeacon: CLBeacon? = nil
     var myBeaconName = ""
+    var average: [Double] = []
     
     var isAnewCourse = false
     
@@ -180,7 +181,14 @@ extension DiscGolfViewController: CLLocationManagerDelegate, MKMapViewDelegate {
                     if beacon.accuracy == -1 {
                         distance.text = "Out of Range"
                     } else {
-                        distance.text = "\(String(format:"%.2f", beacon.accuracy)) (m)"
+                        if average.count < 3 {
+                            average.append(beacon.accuracy)
+                        } else {
+                            average.removeLast()
+                            average.append(beacon.accuracy)
+                        }
+                        
+                        distance.text = "\(String(format:"%.2f", average.average)) (m)"
                     }
                 }
             }
@@ -234,5 +242,18 @@ extension DiscGolfViewController: UITableViewDelegate, UITableViewDataSource {
         cell.configure(player)
         
         return cell
+    }
+}
+
+// MARK: - Array Extension
+
+extension Array where Element: FloatingPoint {
+    /// Returns the sum of all elements in the array
+    var total: Element {
+        return reduce(0, +)
+    }
+    /// Returns the average of all elements in the array
+    var average: Element {
+        return isEmpty ? 0 : total / Element(count)
     }
 }
